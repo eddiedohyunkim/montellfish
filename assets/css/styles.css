@@ -1,0 +1,182 @@
+html{
+	font-size: 72px;
+	--secondary-type: 0.65rem;
+	--page-tilt:-10deg;
+}
+@media all and (max-width: 60em) { 
+	html{ 
+		font-size: 60px; 
+		--page-tilt:-8deg;		
+	} 
+}
+@media all and (max-width: 40em) { 
+	html{ 
+		font-size: 48px; 
+		--page-tilt:-6deg;		
+	} 
+}
+@media all and (max-width: 28em) { 
+	html{ 
+		font-size: 36px; 
+		--page-tilt:-6deg;		
+	} 
+}
+
+
+body{
+	font-family: 'IM_FELL_English';
+	overflow: hidden;
+	background-color: #000;
+	position: relative;
+}
+section{
+	position: absolute;
+	top:0;
+	left:0;
+	width:100vw;
+	height:100vh;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+nav{
+	position: absolute;
+	top:0.25rem;
+	left:0.25rem;
+	font-size: var(--secondary-type);
+	width:calc(100vw - (0.25rem * 2));
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+}
+nav > div{
+	cursor: pointer;
+	pointer-events: auto;
+}
+nav > .prevButton{
+	text-align: left;
+}
+nav > .nextButton{
+	text-align: right;
+	position: relative;
+	pointer-events: none;
+}
+nav > .nextButton:after{
+	content:"";
+	position: absolute;
+	right:0;
+	width:200%;
+	height:400%;
+	z-index: 10000;
+	pointer-events: auto;
+}
+
+section > .pagewrapper{
+	width:100%;
+	height:100%;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);  
+	transition-property: clip-path;  
+	transition-duration: 0.5s;
+	position: relative;
+}
+.pagewrapper > .front, .pagewrapper > .back{
+	position: absolute;
+	background-color: #fff;
+	width:100%;
+	height:100%;
+}
+.pagewrapper > .front, .pagewrapper > .back, section:first-child > .front{
+	padding:0.25rem;
+}
+.pagewrapper > .front{
+	pointer-events: auto;
+}
+.pagewrapper > .back{
+	height:100%;
+	font-size: var(--secondary-type);
+	transition-property: transform;
+	transform: translateX(100%);
+	transition-duration: 0.5s;
+	transform-origin: bottom left;
+	-webkit-box-shadow: 0 0 0.3rem rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+.pagewrapper > .back:after{
+	content:'';
+	position: absolute;
+	width:100%;
+	height:50%;
+	left:0;
+	bottom:-50vh;
+	background-color: inherit;
+}
+.nextShadow{
+	position: absolute;
+	width:2rem;
+	height:100vh;
+	top:0;
+	right:0;
+	transform:translateX(2rem);
+	transition-duration: 0.5s;
+	background: linear-gradient(to right, transparent 10%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.3) 50%, transparent);
+	-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgb(0, 0, 0) 50%);
+	transition-property: transform;  
+	pointer-events: none;
+}
+
+/* page next hover */
+section.hover:has(.nextButton:hover) .pagewrapper{
+	clip-path: polygon(0% 0%, calc(100vw - 1rem) 0%, calc(100vw - 1rem) 100%, 0% 100%);  
+}
+section.hover:has(.nextButton:hover) .back{
+	transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+}
+section.hover:has(.nextButton:hover) .nextShadow{
+	transform: translateX(0px);
+}
+
+/* page next flip, also initiates welcome flip too */
+section.hover.flip:has(.nextButton) .pagewrapper, 
+#welcome.initial.flip:has(.back) .pagewrapper{
+	transition-duration: 1s;
+	clip-path: polygon(-1rem 0%, -1rem 0%, -1rem 100%, -1rem 100%);
+}
+section.hover.flip:has(.nextButton) .back, 
+#welcome.initial.flip:has(.back) .back{
+	transition-duration: 1s;
+	transform: translateX(calc(-100vw - 1rem)) rotate(0deg);
+}
+section.hover.flip:has(.nextButton) .nextShadow, 
+#welcome.initial.flip:has(.back) .nextShadow{
+	transition-duration: 1s;
+	transform: translateX(-100vw);
+}
+
+/* special welcome page flip */
+#welcome.initial > .pagewrapper{
+	clip-path: polygon(0% 0%, calc(100vw - 1rem) 0%, calc(100vw - 1rem) 100%, 0% 100%);  
+}
+#welcome.initial > .pagewrapper > .back{
+	transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+}
+#welcome.initial > .nextShadow{
+	transform: translateX(0px);
+}
+
+h1{
+	width:calc(100vw - (0.25rem * 2));
+	left:0.25rem;
+	text-align: center;
+	position: absolute;
+	top:30%;
+}
+
+/* actually last page = first child */
+section:first-child{
+	background-color: #000;
+	color:white;
+	pointer-events: auto;
+}
+section:first-child > .prevButton{
+	z-index: 0;
+}

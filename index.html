@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body>
+	<section id="lastpage">
+		<div class="front">
+			<nav>
+				<div class="prevButton">Previous</div>
+				<div></div>
+			</nav>
+			<h1>DJ GUMMY BEAR</h1>
+		</div>
+	</section>
+
+	<section class="hover">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton">Previous</div>
+					<div class="nextButton">Next</div>	
+				</nav>
+				<h1>SAVE THE YOUTH</h1>
+			</div>
+			<div class="back">Next</div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section class="hover">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton"></div>
+					<div class="nextButton">Next</div>	
+				</nav>
+				<h1>MONTELL FISH</h1>
+			</div>
+			<div class="back">Next</div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section id="welcome">
+		<div class="pagewrapper">
+			<div class="front">
+				<h1>WELCOME</h1>
+			</div>	
+			<div class="back"></div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<div id="page-flipper">
+		<div id="prev" class="active"></div>
+		<div id="next" class="active"></div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+			welcomeFlip()
+			device()	
+		}
+
+		function device(){
+			if(isTouchDevice()){
+				mobile()
+			}else{
+				desktop()			
+			}
+		}
+
+		function welcomeFlip(){
+			let welcome = document.getElementById('welcome');
+			setTimeout(function(){
+				welcome.classList.add('initial');	
+			}, 300);
+			setTimeout(function(){
+				welcome.classList.add('flip');	
+			}, 1000);
+		}
+
+		function mobile(){
+			console.log('this is mobile')
+
+			let nextButtons = document.querySelectorAll('.nextButton');
+			nextButtons.forEach(function(nextButton){
+				nextButton.addEventListener('click', function (e) {
+					console.log('next button clicked');
+					let thisPage = this.closest('section');
+					setTimeout(function(){
+						thisPage.classList.add('initial');	
+					}, 100);
+					setTimeout(function(){
+						thisPage.classList.add('flip');	
+					}, 300);
+				});
+			});
+
+		}
+
+		function desktop(){
+			console.log('this is desktop')
+
+			let nextButtons = document.querySelectorAll('.nextButton');
+			nextButtons.forEach(function(nextButton){
+				nextButton.addEventListener('click', function (e) {
+					console.log('next button clicked');
+					let thisPage = this.closest('section');
+					flip(thisPage); 
+				});
+			});
+		}
+
+		let prevButtons = document.querySelectorAll('.prevButton');
+		prevButtons.forEach(function(prevButton){
+			prevButton.addEventListener('click', function (e) {
+				console.log(this.id+' clicked');
+				let thisPage = this.closest('section');
+				let prevPage = getPrevPage(thisPage);
+				unflip(prevPage);
+			});
+		});
+		
+
+		function flip(section){
+			section.classList.add('flip');
+		}
+
+		function unflip(section){
+			console.log(section)
+			section.classList.remove('flip');
+		}
+
+		function getPrevPage(current){
+			let next = current.nextElementSibling;
+			console.log(next.tagName);
+			if (!(next.tagName == 'SECTION')){ next = null; }
+			return next;
+		}
+
+		function isTouchDevice(){
+    		return window.matchMedia("(pointer: coarse)").matches
+		}
+		
+	</script>
+</body>
+</html>
