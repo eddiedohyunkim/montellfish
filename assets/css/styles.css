@@ -129,16 +129,29 @@ section > .pagewrapper{
 }
 
 /* page next hover */
-section.hover:has(.nextButton:hover) .pagewrapper{
+@media (hover: none) {
+	section.hover .pagewrapper{
 	clip-path: polygon(0% 0%, calc(100vw - 1rem) 0%, calc(100vw - 1rem) 100%, 0% 100%);  
+	}
+	section.hover .back{
+		transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+	}
+	section.hover .nextShadow{
+		transform: translateX(0px);
+	}
 }
-section.hover:has(.nextButton:hover) .back{
-	transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+@media (hover: hover) {
+	section.hover:has(.nextButton:hover) .pagewrapper{
+		clip-path: polygon(0% 0%, calc(100vw - 1rem) 0%, calc(100vw - 1rem) 100%, 0% 100%);  
+	}
+	section.hover:has(.nextButton:hover) .back{
+		transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+	}
+	section.hover:has(.nextButton:hover) .nextShadow{
+		transform: translateX(0px);
+	}
 }
-section.hover:has(.nextButton:hover) .nextShadow{
-	transform: translateX(0px);
-}
-
+	
 /* page next flip, also initiates welcome flip too */
 section.hover.flip:has(.nextButton) .pagewrapper, 
 #welcome.initial.flip:has(.back) .pagewrapper{
