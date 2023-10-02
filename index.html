@@ -64,16 +64,16 @@
 	<script type="text/javascript">
 		window.onload = function(){
 			welcomeFlip()
-			device()	
+			// device()	
 		}
 
-		function device(){
-			if(isTouchDevice()){
-				mobile()
-			}else{
-				desktop()			
-			}
-		}
+		// function device(){
+		// 	if(isTouchDevice()){
+		// 		mobile()
+		// 	}else{
+		// 		desktop()			
+		// 	}
+		// }
 
 		function welcomeFlip(){
 			let welcome = document.getElementById('welcome');
@@ -85,27 +85,27 @@
 			}, 1000);
 		}
 
-		function mobile(){
-			console.log('this is mobile')
+		// function mobile(){
+		// 	console.log('this is mobile')
 
-			let nextButtons = document.querySelectorAll('.nextButton');
-			nextButtons.forEach(function(nextButton){
-				nextButton.addEventListener('click', function (e) {
-					console.log('next button clicked');
-					let thisPage = this.closest('section');
-					setTimeout(function(){
-						thisPage.classList.add('initial');	
-					}, 100);
-					setTimeout(function(){
-						thisPage.classList.add('flip');	
-					}, 200);
-				});
-			});
+		// 	let nextButtons = document.querySelectorAll('.nextButton');
+		// 	nextButtons.forEach(function(nextButton){
+		// 		nextButton.addEventListener('click', function (e) {
+		// 			console.log('next button clicked');
+		// 			let thisPage = this.closest('section');
+		// 			setTimeout(function(){
+		// 				thisPage.classList.add('initial');	
+		// 			}, 100);
+		// 			setTimeout(function(){
+		// 				thisPage.classList.add('flip');	
+		// 			}, 200);
+		// 		});
+		// 	});
 
-		}
+		// }
 
-		function desktop(){
-			console.log('this is desktop')
+		// function desktop(){
+		// 	console.log('this is desktop')
 
 			let nextButtons = document.querySelectorAll('.nextButton');
 			nextButtons.forEach(function(nextButton){
@@ -115,7 +115,7 @@
 					flip(thisPage); 
 				});
 			});
-		}
+		// }
 
 		let prevButtons = document.querySelectorAll('.prevButton');
 		prevButtons.forEach(function(prevButton){
@@ -144,9 +144,9 @@
 			return next;
 		}
 
-		function isTouchDevice(){
-    		return window.matchMedia("(pointer: coarse)").matches
-		}
+		// function isTouchDevice(){
+    	// 	return window.matchMedia("(pointer: coarse)").matches
+		// }
 		
 	</script>
 </body>
