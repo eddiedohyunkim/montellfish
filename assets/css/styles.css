@@ -4,7 +4,7 @@ html{
 	--page-tilt:-10deg;
 	--paper-color:#c3ab93;
 	--text-color:#473a2c;
-	--last-page-color:#000;
+	--last-page-color:#332a22;
 }
 @media all and (max-width: 60em) { 
 	html{ 
