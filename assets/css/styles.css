@@ -2,8 +2,8 @@ html{
 	font-size: 72px;
 	--secondary-type: 0.65rem;
 	--page-tilt:-10deg;
-	--paper-color:#eed2b2;
-	--text-color:;
+	--paper-color:#c3ab93;
+	--text-color:#473a2c;
 	--last-page-color:#000;
 }
 @media all and (max-width: 60em) { 
@@ -30,7 +30,7 @@ body{
 	font-family: 'IM_FELL_English';
 	overflow: hidden;
 	background-color: #000;
-	color:#000;
+	color:var(--text-color);
 	position: relative;
 }
 section{
@@ -102,7 +102,7 @@ section > .pagewrapper{
 	transform: translateX(100%);
 	transition-duration: 0.5s;
 	transform-origin: bottom left;
-	-webkit-box-shadow: 0 0 0.3rem rgba(89,71,51,0.7);
+	-webkit-box-shadow: 0 0 0.3rem rgba(89,71,51,0.8);
 	cursor: pointer;
 }
 .pagewrapper > .back:after{
@@ -122,7 +122,7 @@ section > .pagewrapper{
 	right:0;
 	transform:translateX(2rem);
 	transition-duration: 0.5s;
-	background: linear-gradient(to right, transparent 10%, rgba(89,71,51,0.5) 40%, rgba(89,71,51,0.4) 50%, rgba(89,71,51,0.5) 50%, transparent);
+	background: linear-gradient(to right, transparent 10%, rgba(89,71,51,0.6) 40%, rgba(89,71,51,0.5) 50%, rgba(89,71,51,0.6) 50%, transparent);
 	-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgb(0, 0, 0) 50%);
 	transition-property: transform;  
 	pointer-events: none;
