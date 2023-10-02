@@ -176,11 +176,11 @@ h1{
 }
 
 /* actually last page = first child */
-section:first-child{
+/*section:first-child{
 	background-color: var(--last-page-color);
 	color:white;
 	pointer-events: auto;
 }
 section:first-child > .prevButton{
 	z-index: 0;
-}
+}*/
