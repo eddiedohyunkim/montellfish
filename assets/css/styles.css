@@ -3,8 +3,11 @@ html{
 	--secondary-type: 0.65rem;
 	--page-tilt:-10deg;
 	--paper-color:#c3ab93;
-	--text-color:#473a2c;
-	--last-page-color:#40352b;
+/*	--text-color:#332518;*/
+/*	--text-color:#46352f;*/
+/*	--text-color:#40322d;*/
+--text-color:#40302f;
+/*	letter-spacing: 0.1rem;*/
 }
 @media all and (max-width: 60em) { 
 	html{ 
@@ -27,11 +30,13 @@ html{
 
 
 body{
+	position: relative;
 	font-family: 'IM_FELL_English';
+	font-size: 1rem;
+/*	line-height: 1.2;*/
 	overflow: hidden;
 	background-color: #000;
 	color:var(--text-color);
-	position: relative;
 }
 section{
 	position: absolute;
@@ -42,39 +47,6 @@ section{
 	overflow: hidden;
 	pointer-events: none;
 }
-
-nav{
-	position: absolute;
-	top:0.25rem;
-	left:0.25rem;
-	font-size: var(--secondary-type);
-	width:calc(100vw - (0.25rem * 2));
-	display: flex;
-	justify-content: space-between;
-	pointer-events: none;
-}
-nav > div{
-	cursor: pointer;
-	pointer-events: auto;
-}
-nav > .prevButton{
-	text-align: left;
-}
-nav > .nextButton{
-	text-align: right;
-	position: relative;
-	pointer-events: none;
-}
-nav > .nextButton:after{
-	content:"";
-	position: absolute;
-	right:0;
-	width:200%;
-	height:400%;
-	z-index: 10000;
-	pointer-events: auto;
-}
-
 section > .pagewrapper{
 	width:100%;
 	height:100%;
@@ -89,11 +61,12 @@ section > .pagewrapper{
 	width:100%;
 	height:100%;
 }
-.pagewrapper > .front, .pagewrapper > .back, section:first-child > .front{
-	padding:0.25rem;
-}
 .pagewrapper > .front{
 	pointer-events: auto;
+}
+
+:root{
+	--shadow-color: 30deg 21% 29%;
 }
 .pagewrapper > .back{
 	height:100%;
@@ -102,7 +75,8 @@ section > .pagewrapper{
 	transform: translateX(100%);
 	transition-duration: 0.5s;
 	transform-origin: bottom left;
-	-webkit-box-shadow: 0 0 0.3rem rgba(89,71,51,0.8);
+	-webkit-box-shadow: 0 0.1rem 0.25rem rgba(89,71,51,0.8);
+/*	-webkit-box-shadow: 0 0.1rem 0.5rem hsl(var(--shadow-color) / 0.8);*/
 	cursor: pointer;
 }
 .pagewrapper > .back:after{
@@ -122,10 +96,17 @@ section > .pagewrapper{
 	right:0;
 	transform:translateX(2rem);
 	transition-duration: 0.5s;
-	background: linear-gradient(to right, transparent 10%, rgba(89,71,51,0.6) 40%, rgba(89,71,51,0.5) 50%, rgba(89,71,51,0.6) 50%, transparent);
+	background: linear-gradient(to right, 
+								transparent 10%, 
+								hsl(var(--shadow-color) / 0.35) 35%, 
+								hsl(var(--shadow-color) / 0.25) 50%, 
+								hsl(var(--shadow-color) / 0.6) 50%, 
+								transparent);
+	mix-blend-mode: multiply;
 	-webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgb(0, 0, 0) 50%);
 	transition-property: transform;  
 	pointer-events: none;
+	
 }
 
 /* page next hover */
@@ -167,20 +148,72 @@ section.hover.flip:has(.nextButton) .nextShadow,
 	transform: translateX(0px);
 }
 
-h1{
-	width:calc(100vw - (0.25rem * 2));
-	left:0.25rem;
-	text-align: center;
-	position: absolute;
-	top:30%;
+/* Page Styles */
+.pagewrapper > .front{
+	/*display: flex;
+	flex-direction: column;
+	gap:0.25rem;*/
+}
+.pagewrapper > .back{
+	padding: 0.25rem;
 }
 
-/* actually last page = first child */
-/*section:first-child{
-	background-color: var(--last-page-color);
-	color:white;
+nav{
+	position: absolute;
+	top:0;
+	left:0;
+	padding: 0.25rem;
+	width:100vw;
+	font-size: var(--secondary-type);
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+}
+nav > div{
+	cursor: pointer;
 	pointer-events: auto;
 }
-section:first-child > .prevButton{
-	z-index: 0;
-}*/
+nav > .prevButton{
+	text-align: left;
+}
+nav > .nextButton{
+	text-align: right;
+	position: relative;
+}
+
+.page{
+/*	height:calc(100vh - 2rem);*/
+	padding: calc(0.25rem * 2 + 0.65rem + 1.2rem) 1rem 1rem 1rem;
+	height:100%;
+	overflow:auto;
+}
+.page:has(.textbox){
+	padding: calc(0.25rem * 2 + 0.65rem + 1.2rem) 0 0 0;
+}
+.textbox{
+	width:8.25rem;
+	margin:0 auto;
+}
+.textbox h1{
+	text-align: left;
+}
+
+h1{
+	text-transform: uppercase;	
+	text-align: center;
+}
+ol {
+	counter-reset: section;
+}
+li {
+    display: block;
+    width:fit-content;
+    counter-reset: number;
+}
+li:before {
+    counter-increment: section;
+    content: counter(section, upper-roman);
+}
+a:hover{
+	opacity: 0.5;
+}
