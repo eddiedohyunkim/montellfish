@@ -1,29 +1,23 @@
 html{
-	font-size: 48px;
-	--secondary-type: 0.65rem;
+	font-size: 36px;
+	--secondary-type: 0.7rem;
 	--page-tilt:-10deg;
-	--paper-color:#c3ab93;
+	--paper-color:#FFA50088;
 /*	--text-color:#332518;*/
 /*	--text-color:#46352f;*/
 /*	--text-color:#40322d;*/
 --text-color:#40302f;
 /*	letter-spacing: 0.1rem;*/
 }
-@media all and (max-width: 60em) { 
-	html{ 
-		font-size: 60px; 
-		--page-tilt:-8deg;		
-	} 
-}
 @media all and (max-width: 40em) { 
 	html{ 
-		font-size: 48px; 
+		font-size: 30px; 
 		--page-tilt:-6deg;		
 	} 
 }
 @media all and (max-width: 28em) { 
 	html{ 
-		font-size: 36px; 
+		font-size: 24px; 
 		--page-tilt:-6deg;		
 	} 
 }
@@ -33,7 +27,7 @@ body{
 	position: relative;
 	font-family: 'IM_FELL_English';
 	font-size: 1rem;
-
+	text-shadow: #40302f 0px 0 2px, #40302f 0px 0 2px, #40302f 0px 0 2px;
 /*	line-height: 1.2;*/
 	overflow: hidden;
 	background-color: #000;
@@ -58,7 +52,9 @@ section > .pagewrapper{
 }
 .pagewrapper > .front, .pagewrapper > .back{
 	position: absolute;
-	background-color: var(--paper-color);
+/*	background: var(--paper-color) url('../image/paper-1.jpg');*/
+	background-image: linear-gradient(to right, var(--paper-color), var(--paper-color)), url('../image/paper-1.jpg');
+
 	width:100%;
 	height:100%;
 }
@@ -79,7 +75,9 @@ section > .pagewrapper{
 	-webkit-box-shadow: 0 0.1rem 0.25rem rgba(89,71,51,0.8);
 /*	-webkit-box-shadow: 0 0.1rem 0.5rem hsl(var(--shadow-color) / 0.8);*/
 	cursor: pointer;
+	z-index: 10;
 }
+
 .pagewrapper > .back:after{
 	content:'';
 	position: absolute;
@@ -87,7 +85,8 @@ section > .pagewrapper{
 	height:50%;
 	left:0;
 	bottom:-50vh;
-	background-color: inherit;
+	background-image: inherit;
+/*	background-image: linear-gradient(to right, var(--paper-color), var(--paper-color)), url('../image/paper-1.jpg');*/
 }
 .nextShadow{
 	position: absolute;
@@ -184,12 +183,12 @@ nav > .nextButton{
 
 .page{
 /*	height:calc(100vh - 2rem);*/
-	padding: calc(0.25rem * 2 + 0.65rem + 1.2rem) 1rem 1rem 1rem;
+	padding: calc(0.25rem * 2 + 0.65rem + 1.2rem + 4.8rem) 1rem 1rem 1rem;
 	height:100%;
 	overflow:auto;
 }
 .page:has(.textbox){
-	padding: calc(0.25rem * 2 + 0.65rem + 1.2rem) 0 1rem 0;
+	padding: calc(0.25rem * 2 + 0.65rem + 1.2rem + 4.8rem) 0 1rem 0;
 }
 .textbox{
 	width:8.25rem;
