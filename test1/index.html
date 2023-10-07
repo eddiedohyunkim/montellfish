@@ -13,11 +13,14 @@
 		<div class="pagewrapper">
 			<div class="front">
 				<nav>
-					<div class="prevButton">Previous</div>
+					<div class="prevButton">Prev</div>
+					<div class="pageCounter">3 of 3</div>
 					<div class="nextButton"></div>	
 				</nav>
 				<div class="page">
-					<h1>DJ Gummy Bear</h1>
+					<div class="textbox">
+						<h1>DJ Gummy Bear</h1>
+					</div>
 				</div>
 			</div>
 			<div class="back"></div>
@@ -29,11 +32,14 @@
 		<div class="pagewrapper">
 			<div class="front">
 				<nav>
-					<div class="prevButton">Previous</div>
+					<div class="prevButton">Prev</div>
+					<div class="pageCounter">2 of 3</div>
 					<div class="nextButton">Next</div>	
 				</nav>
 				<div class="page">
-					<h1>Save the Youth</h1>
+					<div class="textbox">
+						<h1>Save the Youth</h1>
+					</div>
 				</div>
 			</div>
 			<div class="back">Next</div>
@@ -46,19 +52,13 @@
 			<div class="front">
 				<nav>
 					<div class="prevButton"></div>
+					<div class="pageCounter">1 of 3</div>
 					<div class="nextButton">Next</div>	
 				</nav>
 				<div class="page">
 					<div class="textbox">
-						<h1>Montell Fish</h1>
-						<br>
-						<ol type="I">
-							<li><span class="dots">&hairsp;. . . . . . . . . .&thinsp;</span><a href="#">TOUR</a></li>
-							<br>
-							<li><span class="dots">&hairsp;. . . . . . . . .&thinsp;</span><a href="#">NEWS</a></li>
-							<br>
-							<li><span class="dots">&hairsp;. . . . . . .&thinsp;</span><a href="#">ALBUM</a></li>
-						</ol>	
+						<h1>Montell Fish <br> Tour News<br> Album </h1>
+						<img src="assets/image/JCMSEPTEMBEREVENTPOSTER.webp">
 					</div>
 				</div>
 			</div>
@@ -75,7 +75,9 @@
 					<div class="nextButton">&nbsp;</div>	
 				</nav>
 				<div class="page">
-					<h1>Welcome</h1>
+					<div class="textbox">
+						<h1>Welcome</h1>
+					</div>
 				</div>	
 			</div>
 			<div class="back"></div>
@@ -87,6 +89,12 @@
 		<div id="prev" class="active"></div>
 		<div id="next" class="active"></div>
 	</div>
+	<svg>
+  <filter id="wavy2">
+    <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
+    <feDisplacementMap in="SourceGraphic" scale="20" />
+  </filter>
+</svg>
 	<script type="text/javascript">
 		window.onload = function(){
 			welcomeFlip()
