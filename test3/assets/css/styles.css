@@ -2,8 +2,8 @@ html{
 	font-size: 24px;
 	--second-type: 1rem;
 	--page-tilt: -6deg;
-	--paper-color: #b8b1ab;
-	--text-color: #000;
+	--paper-color: #938575;
+	--text-color: #0b1108;
 	--nav-padding: 1rem;
 }
 @media all and (max-width: 40em) { 
@@ -24,20 +24,10 @@ body{
 	font-family: 'IM_FELL_English';
 	font-size: 1rem;
 	letter-spacing: 0.05rem;
-	 /*text-shadow:
-     0.02rem  0.02rem 0.04rem #000000,
-    -0.02rem -0.02rem 0.04rem #000000,  
-     0.02rem -0.02rem 0.04rem #000000,
-    -0.02rem  0.02rem 0.04rem #000000,
-    0 0 0.05em rgb(70 50 25), 0 0 0.1em rgb(0 61 140), 0 0 0.2em rgb(191 111 24);*/
-    text-shadow: 
-    0.02rem 0.02rem 0.04rem var(--text-color), 
-    -0.02rem -0.02rem 0.04rem var(--text-color), 
-    0.02rem -0.02rem 0.04rem var(--text-color), 
-    0 0 0.05em rgb(70 50 25), 0 0 0.15em rgb(0 75 161), 0 0 0.25em rgb(117 124 138);
 	overflow: hidden;
 	background-color: #000;
 	color:var(--text-color);
+	text-shadow: 0.02rem 0.02rem 0.04rem var(--text-color), -0.02rem -0.02rem 0.04rem var(--text-color), 0.02rem -0.02rem 0.04rem var(--text-color), 0 0 0.05em rgb(70 50 25), 0 0 0.15em rgb(22 39 12), 0 0 0.25em rgb(56 69 45);
 }
 section{
 	position: absolute;
@@ -127,11 +117,11 @@ section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow
 
 :root{
 /*	--shadow-color: 30deg 21% 29%;*/
-	--shadow-color: 28deg 6% 42%;
+	--shadow-color: 32deg 11% 23%;
 }
 .pagewrapper > .back{
 /*	-webkit-box-shadow: -0.05rem 0.05rem 0.25rem rgba(89,71,51,0.8);*/
-	-webkit-box-shadow: -0.05rem 0.05rem 0.25rem hsl(var(--shadow-color) / 0.8);
+	-webkit-box-shadow: -0.2rem 0rem 0.25rem hsl(var(--shadow-color) / 0.5);
 }
 
 .nextShadow{
