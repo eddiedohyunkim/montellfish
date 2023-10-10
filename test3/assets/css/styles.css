@@ -1,24 +1,21 @@
 html{
-	font-size: 36px;
+	font-size: 24px;
 	--second-type: 1rem;
-	--page-tilt: -10deg;
-/*	--paper-color: #b3997f;*/
-/*	--paper-color: #afa092;*/
+	--page-tilt: -6deg;
 	--paper-color: #b8b1ab;
-/*	--text-color: #000;*/
 	--text-color: #000;
-	--nav-padding: 0.8rem;
+	--nav-padding: 1rem;
 }
 @media all and (max-width: 40em) { 
 	html{ 
-		font-size: 28px; 
-		--page-tilt:-6deg;		
+		font-size: 20px; 
+		--page-tilt:-4deg;		
 	} 
 }
 @media all and (max-width: 28em) { 
 	html{ 
-		font-size: 20px; 
-		--page-tilt:-6deg;		
+		font-size: 18px; 
+/*		--page-tilt:-2deg;		*/
 	} 
 }
 
@@ -26,7 +23,6 @@ body{
 	position: relative;
 	font-family: 'IM_FELL_English';
 	font-size: 1rem;
-/*	letter-spacing: 0.5rem;*/
 	letter-spacing: 0.05rem;
 	 /*text-shadow:
      0.02rem  0.02rem 0.04rem #000000,
@@ -90,10 +86,10 @@ section > .pagewrapper{
 
 /* page next hover */
 section.hover:has( > .pagewrapper > .front > nav > .nextButton:hover) .pagewrapper{
-	clip-path: polygon(0% 0%, calc(100vw - 1rem) 0%, calc(100vw - 1rem) 100%, 0% 100%);  
+	clip-path: polygon(0% 0%, calc(100vw - 2rem) 0%, calc(100vw - 2rem) 100%, 0% 100%);  
 }
 section.hover:has( > .pagewrapper > .front > nav > .nextButton:hover) .back{
-	transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+	transform: translateX(calc(100vw - 2rem)) rotate(var(--page-tilt));
 }
 section.hover:has( > .pagewrapper > .front > nav > .nextButton:hover) .nextShadow{
 	transform: translateX(0px);
@@ -103,12 +99,12 @@ section.hover:has( > .pagewrapper > .front > nav > .nextButton:hover) .nextShado
 section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .pagewrapper, 
 #welcome.initial.flip:has( > .pagewrapper > .back) .pagewrapper{
 	transition-duration: 1s;
-	clip-path: polygon(-1rem 0%, -1rem 0%, -1rem 100%, -1rem 100%);
+	clip-path: polygon(-2rem 0%, -2rem 0%, -2rem 100%, -2rem 100%);
 }
 section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .back, 
 #welcome.initial.flip:has( > .pagewrapper > .back) .back{
 	transition-duration: 1s;
-	transform: translateX(calc(-100vw - 1rem)) rotate(0deg);
+	transform: translateX(calc(-100vw - 2rem)) rotate(0deg);
 }
 section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow, 
 #welcome.initial.flip:has( > .pagewrapper > .back) .nextShadow{
@@ -118,10 +114,10 @@ section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow
 
 /* special welcome page flip */
 #welcome.initial > .pagewrapper{
-	clip-path: polygon(0% 0%, calc(100vw - 1rem) 0%, calc(100vw - 1rem) 100%, 0% 100%);  
+	clip-path: polygon(0% 0%, calc(100vw - 2rem) 0%, calc(100vw - 2rem) 100%, 0% 100%);  
 }
 #welcome.initial > .pagewrapper > .back{
-	transform: translateX(calc(100vw - 1rem)) rotate(var(--page-tilt));
+	transform: translateX(calc(100vw - 2rem)) rotate(var(--page-tilt));
 }
 #welcome.initial > .nextShadow{
 	transform: translateX(0px);
@@ -140,11 +136,11 @@ section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow
 
 .nextShadow{
 	position: absolute;
-	width:2rem;
+	width:4rem;
 	height:100vh;
 	top:0;
 	right:0;
-	transform:translateX(2rem);
+	transform:translateX(4rem);
 	transition-duration: 0.5s;
 	background: linear-gradient(
 		to right, 
@@ -165,11 +161,15 @@ section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow
 }
 
 nav, .pagewrapper > .back{
-	font-family: 'IM_FELL_English_Italic';
+/*	font-family: 'IM_FELL_English_Italic';*/
 	font-size: var(--second-type);
-	letter-spacing: 0.2rem;
+	letter-spacing: 0.02rem;
+	padding:var(--nav-padding) calc( var(--nav-padding) * 2 );
+}
+.pagewrapper > .back{
 	padding:var(--nav-padding);
 }
+
 a{
 	font-family: 'IM_FELL_English_Italic';
 }
@@ -228,7 +228,10 @@ nav > .pageCounter{
     	hue-rotate(0deg)
     	invert(100%)
 		blur(0.01rem);
+}
 
+.crossHide{
+	visibility: hidden;
 }
 
 
