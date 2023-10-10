@@ -9,7 +9,7 @@ html{
 @media all and (max-width: 40em) { 
 	html{ 
 		font-size: 20px; 
-		--page-tilt:-4deg;		
+/*		--page-tilt:-4deg;		*/
 	} 
 }
 @media all and (max-width: 28em) { 
