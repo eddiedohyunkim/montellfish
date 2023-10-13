@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body>
+	<section class="hover">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton">☜</div>
+					<div class="pageCounter">
+						<span></span>
+						<br>
+						<span class="crossHide"></span>&nbsp;&nbsp;&nbsp;<span></span>
+						<br>
+						<span></span>
+					</div>
+					<div class="nextButton"></div>	
+				</nav>
+				<div class="page">
+					<div class="textbox">
+						<h1>
+							Merch
+						</h1>
+					</div>
+				</div>
+			</div>
+			<div class="back"></div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section class="hover">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton">☜</div>
+					<div class="pageCounter">
+						<span></span>
+						<br>
+						<span></span>&nbsp;&nbsp;&nbsp;<span></span>
+						<br>
+						<span class="crossHide"></span>
+					</div>
+					<div class="nextButton">☞</div>	
+				</nav>
+				<div class="page">
+					<div class="textbox">
+						<h1>
+							DJ Gummy Bear
+						</h1>
+					</div>
+				</div>
+			</div>
+			<div class="back">IV</div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section class="hover">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton">☜</div>
+					<div class="pageCounter">
+						<span></span><br>
+						<span></span>&nbsp;&nbsp;&nbsp;<span  class="crossHide"></span>
+						<br>
+						<span></span>
+					</div>
+					<div class="nextButton">☞</div>	
+				</nav>
+				<div class="page">
+					<div class="textbox">
+						<h1>
+							Save the Youth
+						</h1>
+					</div>
+				</div>
+			</div>
+			<div class="back">III</div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section class="hover">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton">☜</div>
+					<div class="pageCounter">
+						<span class="crossHide"></span><br>
+						<span></span>&nbsp;&nbsp;&nbsp;<span></span>
+						<br>
+						<span></span>
+					</div>
+					<div class="nextButton">☞</div>	
+				</nav>
+				<div class="page">
+					<div class="textbox">
+						<h1>
+							Montell Fish
+							<br> 
+							<a href="">Tour.</a> <a href="">News.</a>
+							<br> 
+							<a href="">Album.</a>
+						</h1>
+					</div>
+				</div>
+			</div>
+			<div class="back">II</div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section class="hover" id="index">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton"></div>
+					<div class="pageCounter">
+						<span></span><br>
+						<span></span>&nbsp;&nbsp;&nbsp;<span></span>
+						<br>
+						<span></span></div>
+					<div class="nextButton">☞</div>	
+				</nav>
+				<div class="page">
+					<div class="textbox">
+						<div class="imgCont">
+							<img src="assets/image/JCMSEPTEMBEREVENTPOSTER.webp">
+							<a href="" class="indexButton" id="to1">I</a>
+							<a href="" class="indexButton" id="to2">II</a>
+							<a href="" class="indexButton" id="to3">III</a>
+							<a href="" class="indexButton" id="to4">IV</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="back">II</div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<section id="welcome">
+		<div class="pagewrapper">
+			<div class="front">
+				<nav>
+					<div class="prevButton"></div>
+					<div class="nextButton"></div>	
+				</nav>
+				<div class="page">
+					<div class="textbox">
+						<h1>Welcome</h1>
+					</div>
+				</div>	
+			</div>
+			<div class="back"></div>
+		</div>
+		<div class="nextShadow"></div>
+	</section>
+
+	<div id="page-flipper">
+		<div id="prev" class="active"></div>
+		<div id="next" class="active"></div>
+	</div>
+	<svg>
+  <filter id="wavy2">
+    <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
+    <feDisplacementMap in="SourceGraphic" scale="20" />
+  </filter>
+</svg>
+	<script type="text/javascript">
+		window.onload = function(){
+			welcomeFlip()
+		}
+
+		function welcomeFlip(){
+			let welcome = document.getElementById('welcome');
+			setTimeout(function(){
+				welcome.classList.add('initial');	
+			}, 300);
+			setTimeout(function(){
+				welcome.classList.add('flip');	
+			}, 1000);
+		}
+
+		let nextButtons = document.querySelectorAll('.nextButton');
+		nextButtons.forEach(function(nextButton){
+			nextButton.addEventListener('click', function (e) {
+				let thisPage = this.closest('section');
+				flip(thisPage); 
+			});
+		});
+
+		let prevButtons = document.querySelectorAll('.prevButton');
+		prevButtons.forEach(function(prevButton){
+			prevButton.addEventListener('click', function (e) {
+				let thisPage = this.closest('section');
+				let prevPage = getPrevPage(thisPage);
+				unflip(prevPage);
+			});
+		});
+
+		function flip(section){
+			section.classList.add('flip');
+		}
+
+		function unflip(section){
+			section.classList.remove('flip');
+		}
+
+		function getPrevPage(current){
+			let next = current.nextElementSibling;
+			if (!(next.tagName == 'SECTION')){ next = null; }
+			return next;
+		}
+
+		// function isTouchDevice(){
+    	// 	return window.matchMedia("(pointer: coarse)").matches
+		// }
+		
+	</script>
+</body>
+</html>
