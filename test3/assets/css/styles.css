@@ -8,13 +8,13 @@ html{
 }
 @media all and (max-width: 40em) { 
 	html{ 
-		font-size: 20px; 
+		font-size: 18px; 
 /*		--page-tilt:-4deg;		*/
 	} 
 }
 @media all and (max-width: 28em) { 
 	html{ 
-		font-size: 18px; 
+		font-size: 16px; 
 /*		--page-tilt:-2deg;		*/
 	} 
 }
@@ -27,7 +27,7 @@ body{
 	overflow: hidden;
 	background-color: #000;
 	color:var(--text-color);
-	text-shadow: 0.02rem 0.02rem 0.04rem var(--text-color), -0.02rem -0.02rem 0.04rem var(--text-color), 0.02rem -0.02rem 0.04rem var(--text-color), 0 0 0.05em rgb(70 50 25), 0 0 0.15em rgb(22 39 12), 0 0 0.25em rgb(56 69 45);
+	text-shadow: 0.01rem 0.01rem 0.02rem var(--text-color), -0.01rem -0.01rem 0.02rem var(--text-color), 0.01rem -0.01rem 0.02rem var(--text-color), 0 0 0.05em rgb(70 50 25), 0 0 0.1em rgb(22 39 12), 0 0 0.2em rgb(56 69 45);
 }
 section{
 	position: absolute;
@@ -182,15 +182,17 @@ nav > .pageCounter{
 	width:fit-content;
 	left:50%;
 	transform:translateX(-50%);
+	text-align: center;
+	line-height: 1.2;
 }
 
 .page{
-	padding: calc(var(--nav-padding) + 2rem) 1rem 1rem 1rem;
+	padding: calc(var(--nav-padding) + 4.8rem) 1rem 1rem 1rem;
 	height:100%;
 	overflow:auto;
 }
 .page:has(.textbox){
-	padding: calc(var(--nav-padding) + 2rem) 0 1rem 0;
+	padding: calc(var(--nav-padding) + 4.8rem) 0 1rem 0;
 }
 .textbox{
 	width:100%;
@@ -203,8 +205,8 @@ nav > .pageCounter{
 }
 .textbox img{
 	display: block;
-	width:min(75vw, 75vh);
-	margin:auto;
+	width:100%;
+	max-width: 100%;
 	mix-blend-mode: multiply;
 
 	filter:
@@ -215,10 +217,40 @@ nav > .pageCounter{
     	/* off-white to yellow */
     	saturate(50%)
     	/* do whatever you want with yellow */
-    	hue-rotate(0deg)
+    	hue-rotate(240deg)
     	invert(100%)
 		blur(0.01rem);
 }
+
+#index .imgCont{
+	position: relative;
+	width:min(50vw, 50vh);
+	margin:auto;
+}
+#index a{
+	font-family: 'IM_FELL_English';
+}
+.indexButton{
+	position: absolute;
+}
+#to1{
+	top:0;
+	left:0;
+}
+#to2{
+	top:0;
+	right:0;
+}
+#to3{
+	bottom:0;
+	left:0;
+}
+#to4{
+	bottom:0;
+	right:0;
+}
+
+
 
 .crossHide{
 	visibility: hidden;
