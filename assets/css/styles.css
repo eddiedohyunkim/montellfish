@@ -2,32 +2,38 @@ html{
 	font-size: 24px;
 	--second-type: 1rem;
 	--page-tilt: -6deg;
-	--paper-color: #938575;
-	--text-color: #0b1108;
+	--paper-color: #8F765A;
+/*--paper-color: #fff;*/
+	--text-color: #000;
 	--nav-padding: 1rem;
 }
 @media all and (max-width: 40em) { 
-	html{ 
-		font-size: 18px; 
-/*		--page-tilt:-4deg;		*/
-	} 
+	html{ font-size: 18px; } 
 }
 @media all and (max-width: 28em) { 
-	html{ 
-		font-size: 16px; 
-/*		--page-tilt:-2deg;		*/
-	} 
+	html{ font-size: 16px; } 
 }
 
 body{
 	position: relative;
 	font-family: 'IM_FELL_English';
 	font-size: 1rem;
-	letter-spacing: 0.05rem;
-	overflow: hidden;
+	-webkit-font-smoothing:antialiased;
+	letter-spacing: 0.025rem;
+/*	overflow: hidden;*/
 	background-color: #000;
+	-webkit-text-stroke-width: 0.05rem;
+	line-height: 1.2;
+/*  -webkit-text-stroke-color: ;*/
 	color:var(--text-color);
-	text-shadow: 0.01rem 0.01rem 0.02rem var(--text-color), -0.01rem -0.01rem 0.02rem var(--text-color), 0.01rem -0.01rem 0.02rem var(--text-color);
+/*	text-shadow: 0.01rem 0.01rem 0.02rem var(--text-color), -0.01rem -0.01rem 0.02rem var(--text-color), 0.01rem -0.01rem 0.02rem var(--text-color);*/
+	/*text-shadow: 
+		0.01rem 0.01rem 0.02rem var(--text-color), 
+		-0.01rem -0.01rem 0.02rem var(--text-color), 
+		0.01rem -0.01rem 0.02rem var(--text-color), 
+		0 0 0.05em rgb(70 50 25), 
+		0 0 0.1em rgb(22 39 12), 
+		0 0 0.2em rgb(56 69 45);*/
 }
 section{
 	position: absolute;
@@ -121,7 +127,8 @@ section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow
 }
 .pagewrapper > .back{
 /*	-webkit-box-shadow: -0.05rem 0.05rem 0.25rem rgba(89,71,51,0.8);*/
-	-webkit-box-shadow: -0.2rem 0rem 0.25rem hsl(var(--shadow-color) / 0.4);
+/*	-webkit-box-shadow: -0.2rem 0rem 0.25rem hsl(var(--shadow-color) / 0.4);*/
+	-webkit-box-shadow: -0.2rem 0rem 0.25rem rgba(0,0,0,0.3);
 }
 
 .nextShadow{
@@ -150,72 +157,70 @@ section.hover.flip:has( > .pagewrapper > .front > nav > .nextButton) .nextShadow
 	background: var(--paper-color);
 }
 
-nav, .pagewrapper > .back{
-/*	font-family: 'IM_FELL_English_Italic';*/
-	font-size: var(--second-type);
-	letter-spacing: 0.02rem;
-	padding:var(--nav-padding) calc( var(--nav-padding) * 2 );
-}
 .pagewrapper > .back{
-	padding:var(--nav-padding);
+	padding:1rem;
 }
 
-a{
-	font-family: 'IM_FELL_English_Italic';
+.pagewrapper > .front{
+	padding:1rem 2rem;
+	overflow: auto;
 }
 
 nav{
-	position: absolute;
+	position: sticky;
 	top:0;
-	left:0;
-	width:100vw;
+	width:100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	pointer-events: none;
+	margin-bottom: 1rem;
 }
 nav > div{
 	cursor: pointer;
 	pointer-events: auto;
+	min-width: 1rem;
 }
-nav > .pageCounter{
-	position: absolute;
+nav > .pageIndex{
 	width:fit-content;
-	left:50%;
-	transform:translateX(-50%);
 	text-align: center;
-	line-height: 1.2;
+}
+.pageIndex > span{
+	display: inline-block;
 }
 
-.page{
-	padding: calc(var(--nav-padding) + 4.8rem) 1rem 1rem 1rem;
-	height:100%;
-	overflow:auto;
-}
-.page:has(.textbox){
-	padding: calc(var(--nav-padding) + 4.8rem) 0 1rem 0;
-}
-.textbox{
-	width:100%;
-	margin:0 auto;
-	line-height: 1.2;
-}
-.textbox h1{
+h1, h2, h3, h4, h5{
 	text-align: center;
 	text-transform: uppercase;
 }
-.textbox img{
+
+p{
+	margin-bottom: 1.2rem;
+}
+
+
+.imgCont{
+	width:min(50vw, 50vh);
+	margin:auto;
+    position: relative;
+}
+/* for image innerglow*/
+.imgCont.glow:after{
+	box-shadow: 
+		inset -10px -10px 10px 20px var(--paper-color);
+  	content: '';
+  	display: block;
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 0;
+}
+img{
 	display: block;
 	width:100%;
 	max-width: 100%;
 	mix-blend-mode: multiply;
-
-	/*filter:
-    	invert(100%)
-    	sepia(100%)
-    	saturate(25%)
-    	hue-rotate(240deg)
-    	invert(100%)
-		blur(0.01rem);*/
+	filter:grayscale(100%);
 }
 
 #index .imgCont{
@@ -252,27 +257,7 @@ nav > .pageCounter{
 }
 
 
-
-.roman{
-	display: inline-block;
-	vertical-align: -0.1rem;
-}
-
-
 a:hover{
 	opacity: 0.5;
-}
-
-ol {
-	counter-reset: section;
-}
-li {
-    display: block;
-    width:fit-content;
-    counter-reset: number;
-}
-li:before {
-    counter-increment: section;
-    content: counter(section, upper-roman);
 }
 
