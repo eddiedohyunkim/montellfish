@@ -156,6 +156,16 @@
 		.next .front{
 			background-color: white;
 		}
+
+		#ruler{
+			height:var(--100vh);
+			width:1rem;
+			border:1px solid #0f0;
+			position:fixed;
+			top:0;
+			left:0;
+			z-index: 10000;
+		}
 	</style>
 </head>
 <body>
@@ -175,6 +185,7 @@
 			<h1>I checked in for the night at Out O The Way motel. What a bad choice that was. First I took a shower and a spider crawled out of the drain. Next, the towel rack fell down when I reached for the one small bath towel. This allowed the towel to fall halfway into the toilet. I tried to watch a movie, but the remote control was sticky and wouldn’t stop scrolling through the channels. I gave up for the night and crawled into bed. I stretched out my leg and felt something furry by my foot. Filled with fear, I reached down and to my surprise, I pulled out a raccoon skin pair of underwear. After my initial relief that it wasn’t alive, the image of a fat, ugly businessman wearing raccoon skin briefs filled my brain. I jumped out of the bed, threw my toothbrush into my bag, and sprinted towards my car.</h1>
 		</div>
 	</section>
+	<div id="ruler"></div>
 </body>
 <script type="text/javascript">
 
@@ -205,22 +216,14 @@
 
 
 	
-	let height = document.documentElement.clientHeight;
-	document.querySelector('#height').innerHTML = height+'px';
-	
+	const r = document.querySelector(':root');
+	reportWindowSize()
 	function reportWindowSize() {
 		let height = document.documentElement.clientHeight;
 		document.querySelector('#height').innerHTML = height+'px';
+		r.style.setProperty('--100vh', height+'px');
 	}	
 
 	window.onresize = reportWindowSize;
-
-	// const r = document.querySelector(':root');
-
-	// // Create a function for setting a variable value
-	// function myFunction_set() {
-  	// 	// Set the value of variable --blue to another value (in this case "lightblue")
-  	// 	r.style.setProperty('--svg', 'lightblue');
-	// }
 </script>
 </html>
