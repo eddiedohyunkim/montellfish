@@ -6,6 +6,9 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<style type="text/css">
+		:root{
+			--100vh: 100svh;
+		}
 		html{
 			font-size: 24px;
 			font-weight: bold;
@@ -42,6 +45,7 @@
 			overflow: hidden;
 		}
 
+
 		.front, .back{
 			background-color: #8F765A;
 		}
@@ -72,7 +76,7 @@
 		.willflip{
 			transition-property: clip-path;
   			transition-duration: 1s;
-  			
+
 			/*clip-path: polygon(
 				0 calc( (100vw - 3rem) * 5 / -3 ), 
 				calc( 100vw + (100svh - 5rem) * 3 / 5  ) 100%, 
@@ -82,7 +86,7 @@
 			clip-path: polygon(
 				0 0, 
 				calc(100vw - 3rem) 0, 
-				calc( 100vw + ( (100vh - 5rem) * 3 ) / 5  ) 100%, 
+				calc( 100vw + ( (100svh - 5rem) * 3 ) / 5  ) 100%, 
 				0 100%
 			);
 		}
@@ -198,7 +202,6 @@
 	function flip(section){
 		section.classList.add('flip');
 	}
-	
 
 
 	
@@ -211,5 +214,13 @@
 	}	
 
 	window.onresize = reportWindowSize;
+
+	// const r = document.querySelector(':root');
+
+	// // Create a function for setting a variable value
+	// function myFunction_set() {
+  	// 	// Set the value of variable --blue to another value (in this case "lightblue")
+  	// 	r.style.setProperty('--svg', 'lightblue');
+	// }
 </script>
 </html>
