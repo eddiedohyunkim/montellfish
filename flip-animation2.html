@@ -72,20 +72,34 @@
 		.willflip{
 			transition-property: clip-path;
   			transition-duration: 1s;
-			clip-path: polygon(
+  			
+			/*clip-path: polygon(
 				0 calc( (100vw - 3rem) * 5 / -3 ), 
 				calc( 100vw + (100svh - 5rem) * 3 / 5  ) 100%, 
+				0 100%
+			);*/
+
+			clip-path: polygon(
+				0 0, 
+				calc(100vw - 3rem) 0, 
+				calc( 100vw + ( (100vh - 5rem) * 3 ) / 5  ) 100%, 
 				0 100%
 			);
 		}
 
 		/* when next button clicked = flip page */
 		.willflip.flip{
+			/*clip-path: polygon(
+				0 calc( (100vw - 3rem) * 5 / -3 ),
+				0 100%,
+				0 100%
+			);*/
 			clip-path: polygon(
-					0 calc( (100vw - 3rem) * 5 / -3 ),
-					0 100%,
-					0 100%
-				);
+				0 0, 
+				0 0,
+				0 100%,
+				0 100%
+			);
 		}
 
 		.back{
@@ -172,9 +186,8 @@
 	const sections = document.querySelectorAll('section');
 	sections.forEach(function(section){
 		let back = section.querySelector('.back') || false;
-		if(!back == false){
+		if(back !== null){
 			back.onclick = function(){
-				// conso
 				flip(section)
 			}
 		}
