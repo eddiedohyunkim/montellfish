@@ -32,8 +32,6 @@
 			overscroll-behavior: none;
 		}
 		section{
-/*			width:100vw;*/
-/*			height:100vh;*/
 			border:2px solid red;
 			-webkit-user-drag: none;
 			top: 0;
@@ -71,7 +69,7 @@
 
 		/* when next button hovered = make dog ear */ 
 		/*	3 points */
-		.flip{
+		.willflip{
 			transition-property: clip-path;
   			transition-duration: 1s;
 			clip-path: polygon(
@@ -82,7 +80,7 @@
 		}
 
 		/* when next button clicked = flip page */
-		body:hover .flip{
+		.willflip.flip{
 			clip-path: polygon(
 					0 calc( (100vw - 3rem) * 5 / -3 ),
 					0 100%,
@@ -103,7 +101,7 @@
 			box-shadow: 0 0 11px rgba(0, 0, 0, .5);
 		}
 
-		body:hover .back{
+		.flip .back{
 			width:100vw;
 			right:100vw;
 			transform: rotate(0deg); 
@@ -122,7 +120,17 @@
 			right:-200px;
 			bottom:0;
 			width:200px;
-			background-color:#0f0;
+			background-color:inherit;
+		}
+
+		nav{
+			position: sticky;
+    		top: 0;
+    		display: flex;
+    		justify-content: space-between;
+    		align-items: center;
+    		pointer-events: none;
+    		margin-bottom: 1rem;
 		}
 
 
@@ -133,8 +141,13 @@
 	</style>
 </head>
 <body>
-	<section class="flip">
+	<section class="willflip">
 		<div class="front">
+			<nav>
+				<span class="prev">☜</span>
+				<div>I</div>
+				<span class="next">☞</span>	
+			</nav>
 			<h1><span id="height"></span>There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that. </h1>	
 		</div>
 		<div class="back"></div>
@@ -153,6 +166,27 @@
     i = pages.length - 1;
 
 	for(; i--;){ body.appendChild(pages[i]) }
+
+
+
+	const sections = document.querySelectorAll('section');
+	sections.forEach(function(section){
+		let back = section.querySelector('.back') || false;
+		if(!back == false){
+			back.onclick = function(){
+				// conso
+				flip(section)
+			}
+		}
+		
+
+	});
+	
+	function flip(section){
+		section.classList.add('flip');
+	}
+	
+
 
 	
 	let height = document.documentElement.clientHeight;
