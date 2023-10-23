@@ -154,5 +154,7 @@
 
 	for(; i--;){ body.appendChild(pages[i]) }
 
+	let height = document.documentElement.clientHeight;
+	document.querySelector('.flip .front').innerHTML += height+'px';
 </script>
 </html>
