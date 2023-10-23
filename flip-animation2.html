@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<style type="text/css">
+		html{
+			height: 100%;
+			font-size: 24px;
+			font-weight: bold;
+		}
+		body{
+			overflow: auto;
+			width:100%;
+			height:100%;
+  			display: flex;
+  			flex-direction: row-reverse;
+		}
+		section{
+			flex: none;
+			top:0;
+			left:0;
+			position: absolute;
+			width:100%;
+			height:100%;
+			max-height: 100%;
+			overflow-x: hidden;
+		}
+
+		.front, .back{
+			background-color: #8F765A;
+		}
+		.front{
+			height:100%;
+			padding:1rem;
+		}
+		.back{
+			background-color: red;
+		}
+
+		/* when next button hovered = make dog ear */ 
+		/*	4 points */
+		/*.flip{
+			transition-property: clip-path;
+  			transition-duration: 1s;
+			clip-path: polygon(
+				0% 0%, 
+				calc(100vw - 3rem) 0%, 
+				calc( 100vw + ( (100vh - 5rem) * 3 ) / 5  ) 100%, 
+				0% 100%
+			);
+		}*/
+
+		/* when next button hovered = make dog ear */ 
+		/*	3 points */
+		.flip{
+			transition-property: clip-path;
+  			transition-duration: 1s;
+			clip-path: polygon(
+				0 calc( (100vw - 3rem) * 5 / -3 ), 
+				calc( 100vw + (100vh - 5rem) * 3 / 5  ) 100%, 
+				0 100%
+			);
+		}
+
+		/* when next button clicked = flip page */
+		body:hover .flip{
+			clip-path: polygon(
+					0 calc( (100vw - 3rem) * 5 / -3 ),
+					0 100%,
+					0 100%
+				);
+
+/*			clip-path: polygon( 0 0, 0 0, 0 100%, 0 100% );  */
+		}
+
+		.back{
+			transition-property: width, right, transform;
+  			transition-duration: 1s;
+			position:absolute;
+			top:0;
+			right:3rem;
+			width:3rem;
+			height:200%;
+			transform-origin: top right;
+			transform: rotate( -62deg );
+			box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+		}
+
+		body:hover .back{
+			width:100vw;
+			right:100vw;
+			transform: rotate(0deg); 
+		}
+		/*@keyframes flip2{
+			100%{ 
+				width:100%;
+				transform: translate(calc(-100vw), 0) rotate(0deg); 
+			}
+		}*/
+		
+		.back:after{
+			content:'';
+			position: absolute;
+			top:0;
+			right:-200px;
+			bottom:0;
+			width:200px;
+			background-color:#0f0;
+		}
+
+
+
+		.next .front{
+			background-color: white;
+		}
+	</style>
+</head>
+<body>
+	<section class="flip">
+		<div class="front">
+			<h1>There was only half a worm in the apple. At first, Judy didn't quite comprehend what this meant. "Why would only half a worm be living in an apple?" she wondered. And then it dawned on her. Judy quickly spit out the bite she had just taken expecting to see the other half of the worm. It ended up being much worse than that.</h1>	
+		</div>
+		<div class="back"></div>
+	</section>
+	<section class="next">
+		<div class="front">
+			<h1>I checked in for the night at Out O The Way motel. What a bad choice that was. First I took a shower and a spider crawled out of the drain. Next, the towel rack fell down when I reached for the one small bath towel. This allowed the towel to fall halfway into the toilet. I tried to watch a movie, but the remote control was sticky and wouldn’t stop scrolling through the channels. I gave up for the night and crawled into bed. I stretched out my leg and felt something furry by my foot. Filled with fear, I reached down and to my surprise, I pulled out a raccoon skin pair of underwear. After my initial relief that it wasn’t alive, the image of a fat, ugly businessman wearing raccoon skin briefs filled my brain. I jumped out of the bed, threw my toothbrush into my bag, and sprinted towards my car.</h1>
+		</div>
+	</section>
+</body>
+<script type="text/javascript">
+
+	// reverse page order
+	let body = document.body,
+    pages = body.querySelectorAll('section'),
+    i = pages.length - 1;
+
+	for(; i--;){ body.appendChild(pages[i]) }
+
+</script>
+</html>
