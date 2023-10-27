@@ -206,9 +206,24 @@
 			text-align: center;
 			margin:1rem 0 1rem 0;
 		}
+		h1{
+			margin-bottom: 2rem;
+		}
 		h2{
 			margin:0 0 2rem 0;
+			letter-spacing: 0.5rem;
+			line-height: 1.4;
 /*			margin-bottom: 2rem;*/
+		}
+		h2 > .italic{
+			padding-left: 0.5rem;
+		}
+		h3{
+			font-size: 0.8rem;
+			letter-spacing: 0.075rem;
+		}
+		.roman{
+			letter-spacing: 0;
 		}
 		
 		.italic{
@@ -310,8 +325,8 @@
 				</div>
 				<h1>Book of Charlotte</h1>
 				<h2>
-					<span class="italic">DOXOLOGY</span><br>
-					Chapter I
+					<p class="italic">DOXOLOGY</p>
+					<p>Chapter <span class="roman">I</span></p>
 				</h2>
 				<h3 class="italic">GUMMY&rsquo;S DREAM</h3>
 				<ol>
@@ -384,9 +399,12 @@
 			</nav>
 			<div class="main">
 				<h2>
-					<span class="italic">DOXOLOGY</span><br>
-					Chapter II
+					<p class="italic">DOXOLOGY</p>
+					<p>Chapter <span class="roman">II</span></p>
 				</h2>
+					<!-- <span class="italic">DOXOLOGY</span><br>
+					Chapter <span class="roman">II</span>
+				</h2> -->
 				<h3 class="italic">Gummy&rsquo;s Holy Sacrifice</h3>
 				<ol>
 					<li class="italic">
@@ -452,7 +470,7 @@
 			<div class="main">
 				<h2>
 					<span class="italic">DOXOLOGY</span><br>
-					Chapter III
+					Chapter <span class="roman">III</span>
 				</h2>
 				<h3 class="italic">Gummy&rsquo;s Departure</h3>
 				<ol>
@@ -535,7 +553,7 @@
 			<div class="main">
 				<h2>
 					<span class="italic">OBLATION</span><br>
-					Chapter IV
+					Chapter <span class="roman">IV</span>
 				</h2>
 				<h3 class="italic">The Water Spirit</h3>
 				<ol>
