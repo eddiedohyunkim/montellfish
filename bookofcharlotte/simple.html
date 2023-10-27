@@ -47,7 +47,9 @@
 		section{
 			-webkit-user-drag: none;
 			overflow: hidden;
+			pointer-events: none;
 		}
+
 
 
 		.front, .back{
@@ -56,7 +58,7 @@
 		.front{
 			overflow: auto;
 			height:100%;
-			padding:1rem 2rem;
+			pointer-events: auto;
 		}
 
 
@@ -128,7 +130,10 @@
 
 
 
-
+		/* page layout */
+		.front{
+			padding:1rem 2rem;
+		}
 
 		nav{
 			position: sticky;
