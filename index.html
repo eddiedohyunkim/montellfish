@@ -6,212 +6,161 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-</head>
-<body>
-	<section class="hover" id="page4">
-		<div class="pagewrapper">
-			<div class="front">
+	<style type="text/css">
+		/*html{
+			font-size: 24px;
+		}
+		@media all and (max-width: 40em) { 
+			html{ font-size: 18px; } 
+		}
+		@media all and (max-width: 28em) { 
+			html{ font-size: 16px; } 
+		}*/
 
-				<nav>
-					<div class="prevButton">☜</div>
-					<div class="pageIndex">
-						<span></span>
-						<br>
-						<span class="roman">IV</span>&emsp;<span></span>
-						<br>
-						<span></span>
-					</div>
-					<div class="nextButton"></div>	
-				</nav>
-
-				<h1>Merch</h1>
-
-			</div>
-			<div class="back"></div>
-		</div>
-		<div class="nextShadow"></div>
-	</section>
-
-	<section class="hover" id="page3">
-		<div class="pagewrapper">
-			<div class="front">
-
-				<nav>
-					<div class="prevButton">☜</div>
-					<div class="pageIndex">
-						<span></span>
-						<br>
-						<span></span>&emsp;<span></span>
-						<br>
-						<span class="roman">III</span>
-					</div>
-					<div class="nextButton">☞</div>	
-				</nav>
-
-				<h1>DJ Gummy Bear</h1>
-
-			</div>
-			<div class="back">IV</div>
-		</div>
-		<div class="nextShadow"></div>
-	</section>
-
-	<section class="hover" id="page2">
-		<div class="pagewrapper">
-			<div class="front">
-
-				<nav>
-					<div class="prevButton">☜</div>
-					<div class="pageIndex">
-						<span></span><br>
-						<span></span>&emsp;<span  class="roman">II</span>
-						<br>
-						<span></span>
-					</div>
-					<div class="nextButton">☞</div>	
-				</nav>
-
-				<h1>Save the Youth</h1>
-
-			</div>
-			<div class="back">III</div>
-		</div>
-		<div class="nextShadow"></div>
-	</section>
-
-	<section class="hover" id="page1">
-		<div class="pagewrapper">
-			<div class="front">
-
-				<nav>
-					<div class="prevButton">☜</div>
-					<div class="pageIndex">
-						<span class="roman">I</span><br>
-						<span></span>&emsp;<span></span>
-						<br>
-						<span></span>
-					</div>
-					<div class="nextButton">☞</div>	
-				</nav>
-
-				<h1>Montell Fish</h1>
-				<h2><a href="">Tour.</a> <a href="">News.</a> <a href="">Album.</a></h2>
-				<br>
-				<p>
-					Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
-				</p>
-
-				<div class="imgCont glow">
-					<img src="assets/image/test.webp">
-				</div>
-
-			</div>
-			<div class="back">II</div>
-		</div>
-		<div class="nextShadow"></div>
-	</section>
-
-	<section class="hover" id="index">
-		<div class="pagewrapper">
-			<div class="front">
-
-				<nav>
-					<div class="prevButton"></div>
-					<div class="pageIndex">
-						<span></span><br>
-						<span></span>&emsp;<span></span>
-						<br>
-						<span></span></div>
-					<div class="nextButton">☞</div>	
-				</nav>
-
-				<div class="imgCont">
-					<img src="assets/image/JCMSEPTEMBEREVENTPOSTER.webp">
-					<span class="indexButton" id="to1">I</span>
-					<span class="indexButton" id="to2">II</span>
-					<span class="indexButton" id="to3">III</span>
-					<span class="indexButton" id="to4">IV</span>
-				</div>
-
-			</div>
-			<div class="back">I</div>
-		</div>
-		<div class="nextShadow"></div>
-	</section>
-
-	<div id="page-flipper">
-		<div id="prev" class="active"></div>
-		<div id="next" class="active"></div>
-	</div>
-	<svg>
-  <filter id="wavy2">
-    <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
-    <feDisplacementMap in="SourceGraphic" scale="20" />
-  </filter>
-</svg>
-	<script type="text/javascript">
-		// window.onload = function(){
-		// 	welcomeFlip()
-		// }
-
-		// function welcomeFlip(){
-		// 	let welcome = document.getElementById('welcome');
-		// 	setTimeout(function(){
-		// 		welcome.classList.add('initial');	
-		// 	}, 300);
-		// 	setTimeout(function(){
-		// 		welcome.classList.add('flip');	
-		// 	}, 1000);
-		// }
-
-		let indexButtons = document.querySelectorAll('.indexButton');
-		indexButtons.forEach(function(indexButton){
-			indexButton.addEventListener('click', function (e) {
-				let button = this;
-				let thisPage = this.closest('section');
-				let directTo = Number(button.id.replace('to', ''));
-				flip(thisPage);
-				console.log(directTo);
-				for(let i=1; i<directTo; i+=1){
-					let page = document.getElementById('page'+ i);
-					flip(page);
-				}
-			});
-			
-		});
-
-		let nextButtons = document.querySelectorAll('.nextButton');
-		nextButtons.forEach(function(nextButton){
-			nextButton.addEventListener('click', function (e) {
-				let thisPage = this.closest('section');
-				flip(thisPage); 
-			});
-		});
-
-		let prevButtons = document.querySelectorAll('.prevButton');
-		prevButtons.forEach(function(prevButton){
-			prevButton.addEventListener('click', function (e) {
-				let thisPage = this.closest('section');
-				let prevPage = getPrevPage(thisPage);
-				unflip(prevPage);
-			});
-		});
-
-		function flip(section){
-			section.classList.add('flip');
+		html{
+			font-size: 24px;
+/*			--paper-color: #ccc6a9;*/
+			--paper-color: rgb(220, 212, 191);
+		}
+		@media all and (max-width: 57rem) { 
+			html{ font-size: 18px; } 
+		}
+		@media all and (max-width: 43em) { 
+			html{ font-size: 16px; } 
+		}
+		@media all and (max-width: 38em) { 
+			html{ font-size: 14px; } 
+		}
+		@media all and (max-width: 34em) { 
+			html{ font-size: 13px; } 
+		}
+		body{
+			font-family: 'IM_FELL_English';
+			font-weight: normal;
+			-webkit-text-stroke-width: 0.05rem;
+			-webkit-font-smoothing:antialiased;
+			font-size: 1rem;
+			line-height: 1.1;
+/*			background-color: var(--paper-color);*/
+			color:#000;
+			padding:2rem 2rem;
+			text-transform: uppercase;
 		}
 
-		function unflip(section){
-			section.classList.remove('flip');
+		.cross-symbol{
+			width:fit-content;
+			margin:auto;
+			text-align: center;
+			margin-bottom: 2rem;
+			user-select: none;
 		}
 
-		function getPrevPage(current){
-			let next = current.nextElementSibling;
-			if (!(next.tagName == 'SECTION')){ next = null; }
-			return next;
+		main{
+			max-width: 16rem;
+			margin:auto;
+
+			display: flex;
+			flex-direction: column;
+			gap:1rem;
+		}
+		ol{
+			list-style: none;
+		}
+		ol ol{
+			/* real 2em space */
+			margin-left: 1.85rem; 
+		}
+
+		.toc p {
+			display: flex;
 		}
 		
-	</script>
+		.toc p .title {
+			order: 1;
+		}
+
+		.toc {
+			counter-reset: item
+		}
+		.toc > li {
+  			counter-increment: item;
+		}
+		.toc > li:before {
+  			content: counter(item, upper-roman);
+  			float:right;
+		}
+		
+		.toc p:after {
+			background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='9.6px'><text x='50%' y='13' class='im-fell' font-size='16' font-weight='bold' text-rendering='optimizeLegibility' text-anchor='middle'>.</text></svg>");
+			background-position: top;
+			background-size: 0.6rem 1rem;
+			background-repeat: space no-repeat;
+			content: "";
+			flex-grow: 1;
+			height: 1em;
+			order: 2;
+			margin-right: 0.2rem;
+		}
+
+		a:hover{
+			font-family: 'IM_FELL_English_Italic';
+			cursor: pointer;
+		}
+
+		img{
+			width:100%;
+			max-width: 100%;
+			mix-blend-mode: multiply;
+		}
+		h1{
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="cross-symbol">
+		<span></span><br><span></span>&emsp;<span></span><br><span></span>
+	</div>
+	<main>
+		<h1>Contents</h1>
+		<ol class="toc">
+			<li>
+				<p>
+					<span class="title">Montell Fish</span>
+				</p>
+				<ol>
+					<li>
+						<a href="https://www.aegpresents.co.uk/events/detail/montell-fish?cid=AEGPRESUK_Montell_London_SOCIAL_Artist_25102023_OGNC_" target="_blank">Tickets</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=XXTAVNXG2cM" target="_blank">News</a>
+					</li>
+					<li>
+						<a href="https://open.spotify.com/artist/5nvWOyAkfNgVLKESq4fOj2" target="_blank">Music</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<p>
+					<a class="title" href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw" target="_blank">DJ Gummy Bear</a>
+				</p>
+			</li>
+			<li>
+				<p>
+					<a class="title" href="savetheyouth">Save the Youth</a>
+				</p>
+			</li>
+			<li>
+				<p>
+					<a class="title" href="bookofcharlotte">Book of Charlotte</a>
+				</p>
+			</li>
+		</ol>
+		<figure>
+			<img src="assets/image/JCMSEPTEMBEREVENTPOSTER.webp">
+			<figcaption></figcaption>
+		</figure>
+	</main>
 </body>
 </html>
