@@ -9,8 +9,9 @@
 	<style type="text/css">
 		:root{
 			--100vh: 100svh;
-/*			--paper-color: rgb(220, 212, 191);*/
-			--paper-color: #fff;
+/*			--paper-color: #dcd2cc;*/
+			--paper-color: rgb(220, 212, 191);
+/*			--paper-color: #fff;*/
 		}
 		html{
 			font-size: 24px;
@@ -98,7 +99,7 @@
 			transform: rotate( -62deg );
 			box-shadow: 0 0 11px rgba(0, 0, 0, .5);
 			overflow: hidden;
-			background-color: #f8f8f8;
+			background-color: rgb(215, 207, 186);
 		}
 		/* back page gradient */
 		.back:before{
@@ -110,11 +111,11 @@
 			bottom:0;
 			right:0;
 			width:3rem;
-			background: linear-gradient(to right, rgba(0,0,0,0), #e8e8e8 50%, #fff 80%, #e8e8e8 100%);
+			background: linear-gradient(to right, rgba(0,0,0,0), rgb(205, 197, 176) 50%, rgb(215, 207, 186) 80%, rgb(205, 197, 176) 100%);
 			transform-origin: top right;
 			transform: rotate(31deg);
 			z-index: 1;
-			mix-blend-mode: darken;
+/*			mix-blend-mode: darken;*/
 		}
 
 		section.flip .back{
@@ -135,8 +136,25 @@
 		/* page layout */
 		.main{
 			padding:1rem 2rem;
-			max-width: 34rem;
+			column-count:2;
+			column-gap: 2rem;
+			max-width: 72rem;
 			margin: 0 auto 2rem auto;
+		}
+
+		@media all and (max-width: 72rem) { 
+			.main{
+				column-count: 1;
+				padding:1rem 2rem;
+				max-width: 34rem;
+/*				margin: 0 auto 2rem auto;*/
+			} 
+		}
+
+		.main{
+/*			padding:1rem 2rem;*/
+/*			max-width: 34rem;*/
+			
 		}
 		.main:after{
 			content:'';
@@ -144,6 +162,9 @@
 			margin-top: 3rem;
 			text-align: center;
 		}
+
+
+
 		.front{
 			padding: 1rem;
 		}
@@ -186,7 +207,8 @@
 			margin:1rem 0 1rem 0;
 		}
 		h2{
-			margin-bottom: 2rem;
+			margin:0 0 2rem 0;
+/*			margin-bottom: 2rem;*/
 		}
 		
 		.italic{
@@ -206,14 +228,16 @@
 		}
 		section ol > li {
   			counter-increment: item;
-  			padding-left: 1.85rem;
+/*  			padding-left: 1.85rem;*/
 /*  			margin-left: 0rem;*/
+			margin-bottom: 1rem;
   			position: relative;
 		}
 		section ol > li:before {
+/*			content: counter(item);*/
   			content: " ";
 /*  			position: absolute;*/
-  			margin-left:-1.85rem;
+  			margin-left:1rem;
 /*  			background-color: red;*/
 /*  		float:right;*/
 /*  		bottom:0;*/
@@ -225,7 +249,7 @@
   			top:0;
   			left:0;
 /*  			background-color: red;*/
-  			margin-left: -1.5rem;
+/*  			margin-left: -1.5rem;*/
 /*  		float:right;*/
 /*  		bottom:0;*/
 		}
