@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/fonts.css">
+	<style type="text/css">
+		:root{
+			--100vh: 100svh;
+/*			--paper-color: rgb(220, 212, 191);*/
+			--paper-color: #fff;
+		}
+		html{
+			font-size: 24px;
+		}
+		@media all and (max-width: 57rem) { 
+			html{ font-size: 18px; } 
+		}
+		@media all and (max-width: 43em) { 
+			html{ font-size: 16px; } 
+		}
+		@media all and (max-width: 38em) { 
+			html{ font-size: 14px; } 
+		}
+		@media all and (max-width: 34em) { 
+			html{ font-size: 13px; } 
+		}
+		html, body, section{
+			top: 0;
+			left: 0;
+    		bottom: 0;
+    		right: 0;
+    		position: fixed;
+		}
+		body{
+			font-family: 'IM_FELL_English';
+			-webkit-font-smoothing:antialiased;
+			font-size: 1rem;
+			background-color: #000;
+			-webkit-text-stroke-width: 0.05rem;
+			line-height: 1.2;
+			overflow: hidden;
+			overscroll-behavior: none;
+		}
+		section{
+			-webkit-user-drag: none;
+			overflow: hidden;
+		}
+
+
+		.front, .back{
+			background-color: var(--paper-color);
+		}
+		.front{
+			overflow: auto;
+			height:100%;
+			padding:1rem 2rem;
+		}
+
+
+		/* PAGE FLIP */ 
+		section{
+			transition-property: clip-path;
+  			transition-duration: 1s;
+			clip-path: polygon(
+				0 0, 
+				100vw 0, 
+				calc( 100vw + ( (100svh - 5rem) * 3 ) / 5  ) 100%, 
+				0 100%
+			);
+		}
+
+		/* flip page */
+		section.flip{
+			clip-path: polygon(
+				0 0, 
+				0 0,
+				0 100%,
+				0 100%
+			);
+		}
+
+		.back{
+			transition-property: width, right, transform;
+  			transition-duration: 1s;
+			position:fixed;
+			top:0;
+			right:0rem;
+			width:0rem;
+			height:200%;
+			transform-origin: top right;
+			transform: rotate( -62deg );
+			box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+			overflow: hidden;
+			background-color: #f8f8f8;
+		}
+		/* back page gradient */
+		.back:before{
+			content: '';
+			transition-property: width, transform;
+  			transition-duration: 1s;
+			position: absolute;
+			top:0;
+			bottom:0;
+			right:0;
+			width:3rem;
+			background: linear-gradient(to right, rgba(0,0,0,0), #e8e8e8 50%, #fff 80%, #e8e8e8 100%);
+			transform-origin: top right;
+			transform: rotate(31deg);
+			z-index: 1;
+			mix-blend-mode: darken;
+		}
+
+		section.flip .back{
+			width:100vw;
+			right:100vw;
+			transform: rotate(0deg); 
+		}
+
+		section.flip .back:before{
+			content: '';
+			width:6rem;
+			transform: rotate(0deg);
+		}
+
+
+
+
+
+
+		nav{
+			position: sticky;
+    		top: 0;
+    		display: flex;
+    		justify-content: space-between;
+    		align-items: center;
+    		pointer-events: none;
+    		margin-bottom: 1rem;
+/*    		outline:1px solid;*/
+    		user-select: none;
+		}
+		nav > *{
+/*			border:1px solid red;*/
+			pointer-events: auto;
+		}
+		nav > .prev, nav > .next{
+			cursor: pointer;
+			min-width: 2rem;
+			line-height: 3.6;
+		}
+
+
+
+		/* Typogrpahy */
+		.pageIndex{
+			text-align: center;
+		}
+
+		h1, h2, h3, h4, h5{
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 0.125rem;
+		}
+		p{
+			max-width: 34rem;
+			margin:auto;
+		}
+	</style>
+</head>
+<body>
+	<section class="willflip">
+		<div class="front">
+			<nav>
+				<span class="prev">☜</span>
+				<div class="pageIndex">
+					Chapter I
+				</div>
+				<span class="next">☞</span>	
+			</nav>
+			<p>
+				Page 1 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+			</p>
+			<span id="height"></span>
+		</div>
+		<div class="back">
+			<!-- <span>II</span> -->
+		</div>
+	</section>
+
+	<section class="willflip">
+	<!-- <section> -->
+		<div class="front">
+			<nav>
+				<span class="prev">☜</span>
+				<div class="pageIndex">
+					Chapter II
+				</div>
+				<span class="next">☞</span>	
+			</nav>
+			<p>
+				Page 2 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+			</p>
+		</div>
+		<div class="back">
+		<!-- III -->
+		</div>
+		<!-- <div class="shadow" id='p1'></div> -->
+	</section>
+
+	<section class="willflip">
+		<div class="front">
+			<nav>
+				<span class="prev">☜</span>
+				<div class="pageIndex">
+					Chapter III
+				</div>
+				<span class="next">☞</span>	
+			</nav>
+			<p>
+				Page 3 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+			</p>
+		</div>
+		<div class="back">
+			<!-- IV -->
+		</div>
+	</section>
+
+	<section class="willflip last">
+		<div class="front">
+			<nav>
+				<span class="prev">☜</span>
+				<div class="pageIndex">
+					Chapter IV
+				</div>
+				<span class="next">☞</span>	
+			</nav>
+			<p>
+				Page 4 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+			</p>
+		</div>
+	</section>
+
+
+</body>
+<script type="text/javascript">
+
+	// reverse page order
+	let body = document.body,
+    pages = body.querySelectorAll('section'),
+    i = pages.length - 1;
+
+	for(; i--;){ body.insertBefore(pages[i], document.currentScript) }
+
+
+
+	const sections = document.querySelectorAll('section');
+	sections.forEach(function(section){
+		let back = section.querySelector('.next') || false;
+		if(back !== null){
+			back.onclick = function(){
+				flip(section)
+			}
+		}
+		let prev = section.querySelector('.prev') || false;
+		if(prev !== null){
+			prev.onclick = function(){
+				console.log('clicked')
+				console.log(getPrev(section))
+				unflip(getPrev(section))
+			}
+		}
+	});
+	
+	function flip(section){
+		section.classList.add('flip');
+	}
+	function unflip(section){
+		section.classList.remove('flip');
+	}
+
+	function getPrev(current){
+		let next = current.nextElementSibling;
+		let counter = 0
+		while (next) {
+			counter +=1
+			console.log(counter)
+			if (next.tagName == 'SECTION') {
+				return next;
+				break;
+			}
+			next = next.nextElementSibling;
+		}
+	}
+
+
+	
+	const r = document.querySelector(':root');
+	reportWindowSize()
+	function reportWindowSize() {
+		let height = document.documentElement.clientHeight;
+		document.querySelector('#height').innerHTML = height+'px';
+		r.style.setProperty('--100vh', height+'px');
+	}	
+
+	window.onresize = reportWindowSize;
+</script>
+</html>
