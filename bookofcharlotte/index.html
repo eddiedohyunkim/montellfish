@@ -10,23 +10,24 @@
 		:root{
 			--100vh: 100svh;
 /*			--paper-color: #dcd2cc;*/
-			--paper-color: rgb(220, 212, 191);
+/*			--paper-color: rgb(220, 212, 191);*/
+			--paper-color: #e7d9b8;
 /*			--paper-color: #fff;*/
 		}
 		html{
-			font-size: 24px;
+			font-size: 18px;
 		}
 		@media all and (max-width: 57rem) { 
-			html{ font-size: 18px; } 
-		}
-		@media all and (max-width: 43em) { 
 			html{ font-size: 16px; } 
 		}
-		@media all and (max-width: 38em) { 
+		@media all and (max-width: 43em) { 
 			html{ font-size: 14px; } 
 		}
+		@media all and (max-width: 38em) { 
+			html{ font-size: 12px; } 
+		}
 		@media all and (max-width: 34em) { 
-			html{ font-size: 13px; } 
+			html{ font-size: 11px; } 
 		}
 		html, body, section{
 			top: 0;
@@ -39,9 +40,10 @@
 			font-family: 'IM_FELL_English';
 			-webkit-font-smoothing:antialiased;
 			font-size: 1rem;
-			line-height: 1.1;
+			line-height: 1.4;
 			background-color: #000;
 			-webkit-text-stroke-width: 0.05rem;
+			letter-spacing: 0.1rem;
 			color:#000;
 			overflow: hidden;
 			overscroll-behavior: none;
@@ -68,11 +70,11 @@
 		/* PAGE FLIP */ 
 		section{
 			transition-property: clip-path;
-  			transition-duration: 1s;
+  			transition-duration: 500ms;
 			clip-path: polygon(
 				0 0, 
 				100vw 0, 
-				calc( 100vw + ( (100svh - 5rem) * 3 ) / 5  ) 100%, 
+				100vw 100%, 
 				0 100%
 			);
 		}
@@ -87,49 +89,6 @@
 			);
 		}
 
-		.back{
-			transition-property: width, right, transform;
-  			transition-duration: 1s;
-			position:fixed;
-			top:0;
-			right:0rem;
-			width:0rem;
-			height:200%;
-			transform-origin: top right;
-			transform: rotate( -62deg );
-			box-shadow: 0 0 11px rgba(0, 0, 0, .5);
-			overflow: hidden;
-			background-color: rgb(215, 207, 186);
-		}
-		/* back page gradient */
-		.back:before{
-			content: '';
-			transition-property: width, transform;
-  			transition-duration: 1s;
-			position: absolute;
-			top:0;
-			bottom:0;
-			right:0;
-			width:3rem;
-			background: linear-gradient(to right, rgba(0,0,0,0), rgb(205, 197, 176) 50%, rgb(215, 207, 186) 80%, rgb(205, 197, 176) 100%);
-			transform-origin: top right;
-			transform: rotate(31deg);
-			z-index: 1;
-/*			mix-blend-mode: darken;*/
-		}
-
-		section.flip .back{
-			width:100vw;
-			right:100vw;
-			transform: rotate(0deg); 
-		}
-
-		section.flip .back:before{
-			content: '';
-			width:6rem;
-			transform: rotate(0deg);
-		}
-
 
 
 
@@ -138,7 +97,7 @@
 			padding:1rem 2rem;
 			column-count:2;
 			column-gap: 2rem;
-			max-width: 72rem;
+/*			max-width: 72rem;*/
 			margin: 0 auto 2rem auto;
 		}
 
@@ -212,6 +171,7 @@
 		.section{
 			letter-spacing: 0.8rem;
 			text-indent: 0.8rem;
+			margin-bottom: 2rem;
 		}
 		.roman{
 			letter-spacing: 0;
@@ -241,6 +201,10 @@
   			counter-increment: item;
 /*  			padding-left: 1.85rem;*/
 /*  			margin-left: 0rem;*/
+			text-align: justify;
+  			text-justify: inter-word;
+			letter-spacing: 0.075rem;
+/*			word-spacing: 0.2rem;*/
 			margin-bottom: 1rem;
   			position: relative;
 		}
@@ -278,6 +242,7 @@
 			margin:auto;
 			text-align: center;
 			margin-bottom: 2rem;
+			line-height: 1.1;
 			user-select: none;
 		}
 		q:before{
@@ -313,9 +278,8 @@
 						<span></span><br><span></span>&emsp;<span></span><br><span></span>
 					</a>
 				</div>
-				<h1>Book of Charlotte</h1>
 				<h2>
-					<p class="section italic">DOXOLOGY</p>
+					<p class="section">DOXOLOGY</p>
 					<p class="chapter">Chapter <span class="roman">I</p>
 				</h2>
 				<h3 class="italic">GUMMY&rsquo;S DREAM</h3>
@@ -389,7 +353,7 @@
 			</nav>
 			<div class="main">
 				<h2>
-					<p class="section italic">DOXOLOGY</p>
+					<p class="section">DOXOLOGY</p>
 					<p class="chapter">Chapter <span class="roman">II</p>
 				</h2>
 					<!-- <span class="italic">DOXOLOGY</span><br>
@@ -459,7 +423,7 @@
 			</nav>
 			<div class="main">
 				<h2>
-					<p class="section italic">DOXOLOGY</p>
+					<p class="section">DOXOLOGY</p>
 					<p class="chapter">Chapter <span class="roman">III</p>
 				</h2>
 				<h3 class="italic">Gummy&rsquo;s Departure</h3>
@@ -542,7 +506,7 @@
 			</nav>
 			<div class="main">
 				<h2>
-					<p class="section italic">OBLATION</p>
+					<p class="section">OBLATION</p>
 					<p class="chapter">Chapter <span class="roman">IV</span></p>
 				</h2>
 				<h3 class="italic">The Water Spirit</h3>
