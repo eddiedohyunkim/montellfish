@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/fonts.css">
+	<style type="text/css">
+		html, body{
+			width:100%;
+			height:100%;
+		}
+		body{
+			background-color:black;
+		}
+		section{
+			width:100%;
+			height:100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		section.opener{
+			position: absolute;
+			top:0;
+			-webkit-transition: opacity 500ms linear;
+    		transition: opacity 500ms linear;
+		}
+
+		svg, svg image{
+			display: block;
+			width:100%;
+			max-width: 100%;
+			height: 100%;
+			max-height: 100%;
+		}
+
+		.pseudoPageCont{
+			width:100%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.pseudoPage{
+			width:400px;
+			height:500px;
+		}
+
+		.pseudoPageArea{
+			width:100%;
+			height:100%;
+			padding:15% 25%;
+		}
+		.clockCont{
+			aspect-ratio: 1/1;
+		}
+
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/clock.css">
+</head>
+<body>
+	<section class="opener">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2550 3300">
+			<image class="page" width="2550" height="3300" xlink:href="images/charlotte.webp"></image> 
+		</svg>
+		<div class="pseudoPageCont">
+			<div class="pseudoPage">
+				<div class="pseudoPageArea">
+					<div class="clockCont">
+						<div id='clock'>
+					<img src="images/clock/hour.png">
+					<div class='min-wrapper'>
+					  <div class='min'>
+					  	<img src="images/clock/day.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star1-wrapper'>
+					  <div class='star star1'>
+					  	<img src="images/clock/star1.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star2-wrapper'>
+					  <div class='star star2'>
+					  	<img src="images/clock/star2.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star3-wrapper'>
+					  <div class='star star3'>
+					  	<img src="images/clock/star3.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star4-wrapper'>
+					  <div class='star star4'>
+					  	<img src="images/clock/star4.png">
+					  </div>
+					</div>
+					<div class='day-wrapper'>
+					  <div class='day'>
+					  	<img src="images/clock/dayhand.png" >
+					  </div>
+					</div>
+					<div class='hr-wrapper'>
+					  <div class='hr'>
+					  	<img src="images/clock/hourhand.png">
+					  </div>
+					</div>
+					<div class='sec-wrapper'>
+					  <div class='sec'>
+					  	<img src="images/clock/second.png" >
+					  </div>
+					</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2550 3300">
+			<image width="2550" height="3300" xlink:href="images/TOC.webp"></image> 
+			<!-- <a xlink:href="#">
+			<rect x="745" y="751" fill="#fff" opacity="0" width="1065" height="83"></rect>
+			</a> -->
+			<a xlink:href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw">
+				<rect x="746" y="844" fill="#fff" opacity="0" width="1065" height="72"></rect>
+			</a>
+			<a xlink:href="https://sty-shop.com">
+				<rect x="746" y="921" fill="#fff" opacity="0" width="1064" height="65"></rect>
+			</a>
+			<a xlink:href="bookofcharlotte">
+				<rect x="749" y="996" fill="#fff" opacity="0" width="1063" height="64"></rect>
+			</a>
+		</svg>
+	</section>
+	
+		
+	<script type="text/javascript" src="js/movement.js"></script>
+	<script type="text/javascript" src="js/pseudoPage.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
