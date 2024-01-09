@@ -35,6 +35,7 @@
 			max-width: 100%;
 			height: 100%;
 			max-height: 100%;
+			margin:-50px;
 		}
 
 		.pseudoPageCont{
@@ -55,16 +56,24 @@
 		.pseudoPageArea{
 			width:100%;
 			height:100%;
-			padding:24% 25%;
+			padding:15% 20%;
 		}
 		.clockCont{
 			aspect-ratio: 1/1;
+		}
+		audio{
+			visibility: hidden;
+			position: fixed;
+			top:0;
 		}
 
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/clock.css">
 </head>
 <body>
+	<audio autoplay loop id="audio">
+  		<source src="audio/god_or_the_devil_ composer_version.mp3" type="audio/mpeg">
+	</audio>
 	<section class="opener">
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2550 3300">
 			<image class="page" width="2550" height="3300" xlink:href="images/countdown.webp"></image> 
@@ -127,7 +136,7 @@
 			<image width="2550" height="3300" xlink:href="images/TOC.webp"></image> <!-- <a xlink:href="#">
 			  <rect x="865" y="1004" fill="#fff" opacity="0" width="860" height="50"></rect>
 			</a> -->
-			<a target="_blank" xlink:href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw">
+			<!-- <a target="_blank" xlink:href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw">
 			  <rect x="863" y="1071" fill="#fff" opacity="0" width="859" height="50"></rect>
 			</a>
 			<a target="_blank" xlink:href="https://sty-shop.com">
@@ -135,7 +144,21 @@
 			</a>
 			<a xlink:href="bookofcharlotte">
 			  <rect x="863" y="1196" fill="#fff" opacity="0" width="860" height="50"></rect>
-			</a>
+			</a> -->
+
+
+  			<!-- <a xlink:href="#">
+    			<rect x="770" y="888" fill="#fff" opacity="0" width="1028" height="50"></rect>
+  			</a> -->
+  			<a target="_blank" xlink:href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw">
+    			<rect x="771" y="962" fill="#fff" opacity="0" width="1028" height="50"></rect>
+  			</a>
+  			<a target="_blank" xlink:href="https://sty-shop.com">
+    			<rect x="773" y="1039" fill="#fff" opacity="0" width="1027" height="50"></rect>
+  			</a>
+  			<a xlink:href="bookofcharlotte">
+    			<rect x="773" y="1113" fill="#fff" opacity="0" width="1032" height="50"></rect>
+  			</a>
 		</svg>
 
 	</section>
@@ -144,7 +167,11 @@
 	<script type="text/javascript" src="js/movement.js"></script>
 	<script type="text/javascript" src="js/pseudoPage.js"></script>
 	<script type="text/javascript">
-		
+		document.addEventListener('click', musicPlay);
+			function musicPlay() {
+    			document.getElementById('audio').play();
+    			document.removeEventListener('click', musicPlay);
+			}
 	</script>
 </body>
 </html>
