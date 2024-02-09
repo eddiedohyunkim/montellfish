@@ -4,155 +4,159 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<style type="text/css">
-		/*html{
-			font-size: 24px;
-		}
-		@media all and (max-width: 40em) { 
-			html{ font-size: 18px; } 
-		}
-		@media all and (max-width: 28em) { 
-			html{ font-size: 16px; } 
-		}*/
-
-		html{
-			font-size: 18px;
-/*			--paper-color: #ccc6a9;*/
-/*			--paper-color: rgb(220, 212, 191);*/
-			--paper-color: #e7d9b8;
-/*			--paper-color: #dcd2cc;*/
-		}
-		@media all and (max-width: 57rem) { 
-			html{ font-size: 16px; } 
-		}
-		@media all and (max-width: 43em) { 
-			html{ font-size: 14px; } 
-		}
-		@media all and (max-width: 38em) { 
-			html{ font-size: 12px; } 
-		}
-		@media all and (max-width: 34em) { 
-			html{ font-size: 11px; } 
+		html, body{
+			width:100%;
+			height:100%;
 		}
 		body{
-			font-family: 'IM_FELL_English';
-			font-weight: normal;
-			-webkit-text-stroke-width: 0.05rem;
-			-webkit-font-smoothing:antialiased;
-			font-size: 1rem;
-			line-height: 1.4;
-			background-color: var(--paper-color);
-			color:#000;
-			padding:2rem 2rem;
-			letter-spacing: 0.1rem;
-			text-transform: uppercase;
+			background-color:black;
 		}
-
-		.cross-symbol{
-			width:fit-content;
-			margin:auto;
-			text-align: center;
-			margin-bottom: 2rem;
-			line-height: 1.2;
-			user-select: none;
-		}
-
-		main{
-			max-width: 18rem;
-			margin:auto;
-
+		section{
+			width:100%;
+			height:100%;
 			display: flex;
-			flex-direction: column;
-			gap:1rem;
+			justify-content: center;
+			align-items: center;
 		}
-		ol{
-			list-style: none;
-		}
-		ol ol{
-			/* real 2em space */
-			margin-left: 1.85rem; 
-		}
-
-		.toc p {
-			display: flex;
-		}
-		
-		.toc p .title {
-			order: 1;
+		section.opener{
+			position: absolute;
+			top:0;
+			-webkit-transition: opacity 500ms linear;
+    		transition: opacity 500ms linear;
+/*    		transform: rotate(3deg);*/
 		}
 
-		.toc {
-			counter-reset: item
-		}
-		.toc > li {
-  			counter-increment: item;
-		}
-		.toc > li:before {
-  			content: counter(item, upper-roman);
-  			float:right;
-		}
-		
-		.toc p:after {
-			background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='9.6px'><text x='50%' y='15.5' class='im-fell' font-size='16' font-weight='bold' text-rendering='optimizeLegibility' text-anchor='middle'>.</text></svg>");
-			background-position: top;
-			background-size: 0.6rem 1rem;
-			background-repeat: space no-repeat;
-			content: "";
-			flex-grow: 1;
-			height: 1em;
-			order: 2;
-			margin-right: 0.2rem;
-		}
-
-		.italic{
-			font-family: 'IM_FELL_English_Italic';
-		}
-
-		img{
+		svg, svg image{
+			display: block;
 			width:100%;
 			max-width: 100%;
-			mix-blend-mode: multiply;
+			height: 100%;
+			max-height: 100%;
+			margin:-50px;
 		}
-		h1{
-			text-align: center;
+
+		.pseudoPageCont{
+			width:100%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
-		
+
+		.pseudoPageArea{
+			width:100%;
+			height:100%;
+			padding:17% 15% 0% 10%;
+		}
+		.clockCont{
+			aspect-ratio: 1/1;
+		}
+		audio{
+			visibility: hidden;
+			position: fixed;
+			top:0;
+		}
+
 	</style>
+	<link rel="stylesheet" type="text/css" href="css/clock.css">
 </head>
 <body>
-	<div class="cross-symbol">
-		<span></span><br><span></span>&emsp;<span></span><br><span></span>
-	</div>
-	<main>
-		<h1>Contents</h1>
-		<ol class="toc">
-			<li>
-				<p>
-					<span class="title">Montell Fish</span>
-				</p>
-			</li>
-			<li>
-				<p>
-					<a class="title" href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw" target="_blank">DJ Gummy Bear</a>
-				</p>
-			</li>
-			<li>
-				<p>
-					<a class="title" href="https://sty-shop.com/" target="_blank">Save the Youth</a>
-				</p>
-			</li>
-			<li>
-				<p>
-					<a class="title" href="bookofcharlotte">Book of Charlotte</a>
-				</p>
-			</li>
-		</ol>
-		<figure>
-			<img src="assets/image/JCMSEPTEMBEREVENTPOSTER.webp">
-			<figcaption></figcaption>
-		</figure>
-	</main>
+	<audio autoplay loop id="audio">
+  		<source src="audio/god_or_the_devil_composer_version.mp3" type="audio/mpeg">
+	</audio>
+	<section class="opener">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2550 3300">
+			<image class="page" width="2550" height="3300" xlink:href="images/countdown.webp"></image> 
+		</svg>
+		<div class="pseudoPageCont">
+			<div class="pseudoPage">
+				<div class="pseudoPageArea">
+					<div class="clockCont">
+						<div id='clock'>
+					<img src="images/clock/hour.png">
+					<div class='min-wrapper'>
+					  <div class='min'>
+					  	<img src="images/clock/day.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star1-wrapper'>
+					  <div class='star star1'>
+					  	<img src="images/clock/star1.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star2-wrapper'>
+					  <div class='star star2'>
+					  	<img src="images/clock/star2.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star3-wrapper'>
+					  <div class='star star3'>
+					  	<img src="images/clock/star3.png">
+					  </div>
+					</div>
+					<div class='star-wrapper star4-wrapper'>
+					  <div class='star star4'>
+					  	<img src="images/clock/star4.png">
+					  </div>
+					</div>
+					<div class='day-wrapper'>
+					  <div class='day'>
+					  	<img src="images/clock/dayhand.png" >
+					  </div>
+					</div>
+					<div class='hr-wrapper'>
+					  <div class='hr'>
+					  	<img src="images/clock/hourhand.png">
+					  </div>
+					</div>
+					<div class='sec-wrapper'>
+					  <div class='sec'>
+					  	<img src="images/clock/second.png" >
+					  </div>
+					</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2550 3300">
+			<image width="2550" height="3300" xlink:href="images/TOC.webp"></image>
+			<a xlink:href="https://montell.world">
+			    <rect x="1167" y="414" fill="#fff" opacity="0" width="231" height="245"></rect>
+			</a>
+			<a target="_blank" xlink:href="https://open.spotify.com/artist/5nvWOyAkfNgVLKESq4fOj2">
+    			<rect x="771" y="888" fill="#fff" opacity="0" width="1030" height="50"></rect>
+  			</a>
+  			<a target="_blank" xlink:href="https://open.spotify.com/artist/78ECvrY5jP8mbGU52iyNSw">
+    			<rect x="771" y="962" fill="#fff" opacity="0" width="1030" height="50"></rect>
+  			</a>
+  			<a target="_blank" xlink:href="https://sty-shop.com">
+    			<rect x="771" y="1039" fill="#fff" opacity="0" width="1030" height="50"></rect>
+  			</a>
+  			<a xlink:href="bookofcharlotte">
+    			<rect x="771" y="1113" fill="#fff" opacity="0" width="1030" height="50"></rect>
+  			</a>
+		</svg>
+
+	</section>
+	
+		
+	<script type="text/javascript" src="js/movement.js"></script>
+	<script type="text/javascript" src="js/pseudoPage.js"></script>
+	<script type="text/javascript">
+		document.addEventListener('click', musicPlay);
+			function musicPlay() {
+    			document.getElementById('audio').play();
+    			document.removeEventListener('click', musicPlay);
+			}
+	</script>
 </body>
 </html>
