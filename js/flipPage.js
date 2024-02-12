@@ -22,8 +22,9 @@ function next(page){
 			page.previousElementSibling !== null && 
 			page.previousElementSibling.classList.contains('page')
 		){
-			page.style.opacity = '0';	
-			setTimeout(() => hide(page), 220);
+			// page.style.opacity = '0';	
+			// setTimeout(() => hide(page), 220);
+			page.classList.add('hide');
 		}
 	})
 }
@@ -36,7 +37,7 @@ function prev(page){
 			page.nextElementSibling.classList.contains('page')
 		){
 			page.nextElementSibling.classList.remove('hide');
-			setTimeout(() => show(page.nextElementSibling), 10);
+			// setTimeout(() => show(page.nextElementSibling), 10);
 		}
 	})
 }
