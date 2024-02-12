@@ -1,27 +1,5 @@
 let pages = document.querySelectorAll('body > .page');
 
-
-window.onload = function(){
-	
-}
-window.onresize = function(){
-	setPseudoPage()	
-}
-
-function setPseudoPage(){
-
-	pages.forEach((page)=>{
-		let image = page.querySelector('svg image');
-		let w = getSize(image)[0];
-		let h = getSize(image)[1];
-
-		let buttons = page.querySelector('.flipButtons');
-		buttons.style.width = w +'px';
-		buttons.style.height = h +'px';
-	})
-	
-}
-
 function getSize(e){
 	let rect = e.getBoundingClientRect();
 	let w = rect.width;
@@ -29,19 +7,8 @@ function getSize(e){
 	return [w, h];
 }
 
-
-
-
-
 window.onload = function(){
-	setPseudoPage()
 	reversePageOrder()
-	// for(let i=0; i<pages.length-1; i+=1){
-	// 	next(pages[i])
-	// }
-	// for(let i=1; i<pages.length; i+=1){
-	// 	prev(pages[i])
-	// }
 	pages.forEach((page)=>{
 		next(page)
 		prev(page)
