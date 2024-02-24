@@ -1,4 +1,5 @@
 let pages = document.querySelectorAll('body > .page');
+let pseudoPage = document.querySelector('.flipButtons');
 
 function getSize(e){
 	let rect = e.getBoundingClientRect();
@@ -9,10 +10,35 @@ function getSize(e){
 
 window.onload = function(){
 	reversePageOrder()
+	
+
 	pages.forEach((page)=>{
+		setPseudoPage(page)
 		next(page)
 		prev(page)
 	})
+}
+
+window.onresize = function(){
+	pages.forEach((page)=>{
+		setPseudoPage(page)	
+	})
+}
+
+function setPseudoPage(page){
+	let pseudoPage = page.querySelector('.buttonGroup');
+	let pageImg = page.querySelector('svg > image');
+	let w = getSize(pageImg)[0];
+	let h = getSize(pageImg)[1];
+	pseudoPage.style.width = w +'px';
+	pseudoPage.style.height = h +'px';
+}
+
+function getSize(e){
+	let rect = e.getBoundingClientRect();
+	let w = rect.width;
+	let h = rect.height;
+	return [w, h];
 }
 
 function next(page){
@@ -22,8 +48,6 @@ function next(page){
 			page.previousElementSibling !== null && 
 			page.previousElementSibling.classList.contains('page')
 		){
-			// page.style.opacity = '0';	
-			// setTimeout(() => hide(page), 220);
 			page.classList.add('hide');
 		}
 	})
@@ -37,7 +61,6 @@ function prev(page){
 			page.nextElementSibling.classList.contains('page')
 		){
 			page.nextElementSibling.classList.remove('hide');
-			// setTimeout(() => show(page.nextElementSibling), 10);
 		}
 	})
 }

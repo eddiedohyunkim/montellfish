@@ -62,29 +62,34 @@
 			bottom:0;
 			display: flex;
 			flex-direction: row;
-			justify-content: space-between;
+			justify-content: center;
 			align-items: center;
-/*					border:1px solid green;*/
-			padding:0.5em;
+			
+					border:1px solid green;
 		}
 		.buttonGroup{
 			display: flex;
 			flex-direction: row;
-			width: fit-content;
+			width: 100%;
+			height:100%;
+			justify-content: space-between;
+			align-items: center;
 			gap:0.5em;
+			border:1px solid red;
 		}
 
 		.home, .prev, .next{
 			width:fit-content;
 /*					border:1px solid blue;*/
 			font-size: 1.2em;
-			color: white;
-			background-color: black;
+			color: black;
+/*			background-color: black;*/
 			cursor:pointer;
-			padding:0.25em;
+			padding:1em;
 		}
 		.home{
 			position: absolute;
+			color:white;
 			top:0.25em;
 			left:50%;
 			transform: translate(-50%, 0);
@@ -111,11 +116,13 @@
 			<image width="2550" height="3300" xlink:href="../images/1.webp"></image>
 		</svg>
 		<div class="flipButtons">
-			<div class="home">
-				<a href="https://montell.world/"></a>
+			<div class="buttonGroup">
+				<div class="home">
+					<a href="https://montell.world/"></a>
+				</div>
+				<div class="prev unavail">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="prev unavail">☜</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -129,8 +136,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -144,8 +151,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -159,8 +166,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -174,8 +181,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -189,8 +196,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -204,8 +211,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 
@@ -219,8 +226,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 	<section class="page" id="p9">
@@ -233,8 +240,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 	<section class="page" id="p10">
@@ -247,8 +254,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next">☞</div>
 			</div>
-			<div class="next">☞</div>
 		</div>
 	</section>
 	<section class="page" id="p11">
@@ -261,8 +268,8 @@
 					<a href="https://montell.world/"></a>
 				</div>
 				<div class="prev">☜</div>
+				<div class="next unavail">☞</div>
 			</div>
-			<div class="next unavail">☞</div>
 		</div>
 	</section>
 
